@@ -1,10 +1,10 @@
 // // commentaires supplélentaires
-// 
+//      // /!\ Avertissement : Ce jeu à été créé à but parodique, plusieurs références et inside jokes y ont été placées. Prennez-le au second degré :)
 // // PARTIE 1 : 
 // // Introduction du jeu
-// alert(`~ Bienvenue au jeu PokeMoon ~\nToute ressemblance avec un autre jeu ou personnages existants n'est que pure coïncidence °£°`);
-//    // Commandes
-// alert(`Commandes:\nLorsque le prompte vous propose "OK", appuyer sur 'ESPACE' ou 'ENTER'.\nPour répondre aux suggestions, utilisez les touches lettres du clavier.`);
+alert(`~ Bienvenue au jeu PokeMoon ~\nToute ressemblance avec un autre jeu ou personnages existants n'est que pure coïncidence °£°\n\n                                                 Entièrement codé par E.T.`);
+   // Commandes
+alert(`Commandes:\nLorsque le prompte vous propose "OK", appuyer sur 'ESPACE' ou 'ENTER'.\nPour répondre aux suggestions, utilisez les touches lettres du clavier.`);
 //            // Ajouter une option QUITTER (`Vous pouvez quitter à tout moment en appuyant sur la touche Q`)
 
 // // PARTIE 2:
@@ -34,15 +34,12 @@ class PokeMoon {
     }
 };
 //        // Instances PokeMoon
-let salamèche = new PokeMoon("Salamèche", 400, "Feu");
-let carapuce = new PokeMoon("Carapuce", 400, "Eau");
-let bulbizarre = new PokeMoon("Bulbizarre", 400, "Plante");
+let salahess = new PokeMoon("Salahess", 400, "Feu");
+let carapils = new PokeMoon("Carapils", 400, "Eau");
+let bugbizarre = new PokeMoon("Bugbizarre", 400, "Plante");
 //        // Tableau PokeMoon
-let tabPokeMoon = [salamèche, carapuce, bulbizarre];
+let tabPokeMoon = [salahess, carapils, bugbizarre];
 
-                // Random
-            let pRand = Math.round(Math.random()*(tabPokeMoon.length -1));
-            let pokeRandom = tabPokeMoon[pRand];
 
 //    // Attaques
 class Attaques{
@@ -60,16 +57,16 @@ let griffe = new Attaques("Griffe", 40, 100, "Normal", 0);
 let rugissementSala = new Attaques("Rugissement", 0, 100, "Normal", 0);
 let flammèche = new Attaques("Flammèche", 40, 100, "Feu", 7);
 //            // Carapuce
-let charge = new Attaques("Charge", 40, 100, "Normal", 0);
+let coupDeBoule = new Attaques("Coup de Boule", 40, 100, "Normal", 0);
 let mimiQueue = new Attaques("Mimi-Queue", 0, 100, "Normal", 4);
 let pistoletaO = new Attaques("Pistolet à O", 40, 100, "Eau", 7);
 //             //Bulbizarre
 // // Charge same as Carapuce
-let rugissementBulbi = new Attaques("Rugissement", 0, 100, "Normal", 3);
+let rugissementBug = new Attaques("Rugissement", 0, 100, "Normal", 3);
 let fouetLianes = new Attaques("Fouet Lianes", 40, 100, "Plante", 7);
 //        // Tableau Attaques
 //            // Insérer l'option "Fuir" ET Charge pour Carapuce (trier dans un tableau inférieur ?)
-let tabAttaques = [griffe, rugissementSala, flammèche, charge, mimiQueue, pistoletaO, rugissementBulbi, fouetLianes]
+let tabAttaques = [griffe, rugissementSala, flammèche, coupDeBoule, mimiQueue, pistoletaO, rugissementBug, fouetLianes]
 
 
 // // PARTIE 3:
@@ -89,11 +86,46 @@ do {
     };
 } while (persoUser == ("a"||"b"));
 
+// // Boucle permettant de relancer la partie à partir de <<Promenade>>
+
+let continuer;
+do {
+    if (continuer == "a"){
 //        // Le personnage se promène
-alert(`${persoUser.nom} se promène paisiblement dans le Bois de la Cambre jusqu'à ce qu'${persoUser.genre} remarqua quelque chose de suspect.. Mais qu'est-ce ???`);
-alert(`Un ${pokeRandom.nom} sauvage apparaît !!!`);
+    alert(`${persoUser.nom} se promène paisiblement dans le Bois de la Cambre jusqu'à ce qu'${persoUser.genre} remarqua quelque chose de suspect.. Mais qu'est-ce ???`);
+    
+//         // Random PokeMoon
+         let pRand = Math.round(Math.random()*(tabPokeMoon.length -1));
+         let pokeRandom = tabPokeMoon[pRand];
+    
+//        // Apparition PokeMoon
+    alert(`Un ${pokeRandom.nom} sauvage apparaît !!!`);
+
+
+//    // Arrêt jeu
+    } else if (continuer == "b") {
+        alert(`À très bientôt !`)
+    } else {
+        continuer = prompt(`Oopss.. Une erreur est arrivée. Veuillez réessayer.\nSouhaitez-vous continuer à jouer ?\nA. OUI\nB. NON`).toLowerCase();
+    }
+    continuer = prompt(`Souhaitez-vous continuer à jouer ?\nA. OUI\nB. NON`).toLowerCase();
+
+} while (continuer == "a");
 
 
 
-
-// ajouter boucle "Souhaitez-vous continuer à jouer" avant promenade jusque après le combat
+// for (let i = 0; i <=1; i++) {
+//     if (i == 1) {
+//         continuer = prompt(`Souhaitez-vous continuer à jouer ?\nA. OUI\nB. NON`).toLowerCase();
+//     } else {
+// //         // Le personnage se promène
+//     alert(`${persoUser.nom} se promène paisiblement dans le Bois de la Cambre jusqu'à ce qu'${persoUser.genre} remarqua quelque chose de suspect.. Mais qu'est-ce ???`);
+    
+// //          // Random
+//          let pRand = Math.round(Math.random()*(tabPokeMoon.length -1));
+//          let pokeRandom = tabPokeMoon[pRand];
+    
+    
+//     alert(`Un ${pokeRandom.nom} sauvage apparaît !!!`);
+//     }
+// }
