@@ -1,8 +1,14 @@
 // // PARTIE 1 : 
 // Imports de classes
-import { Personnages } from "./perso.js"
-import { PokeMoon } from "./pokeMoon.js"
-import { Attaques } from "./attaques.js"
+import {
+    Personnages
+} from "./perso.js"
+import {
+    PokeMoon
+} from "./pokeMoon.js"
+import {
+    Attaques
+} from "./attaques.js"
 
 // -------------------------------------------------------
 // -------------------------------------------------------q
@@ -12,10 +18,14 @@ import { Attaques } from "./attaques.js"
 // // PARTIE 2 : STRUCTURE GENERALE
 let body = document.body;
 body.style.backgroundImage = "url('./public/img/textureBeige.jpeg')";
+body.style.zIndex = -1;
+
+
+let br = document.createElement('br');
 
 // Section Titre
 let sectionTitre = document.createElement('section');
-    // Div Titre
+// Div Titre
 let divTitre = document.createElement('div');
 let titre = document.createElement('h1');
 titre.innerHTML = "POKEMOON"
@@ -27,8 +37,8 @@ sectionTitre.append(divTitre);
 let section = document.createElement('section');
 section.setAttribute('id', "cadre");
 section.style.textAlign = "center"
-    // Div de jeu
-for(let i = 0; i < 8; i++){
+// Div de jeu
+for (let i = 0; i < 8; i++) {
     let div = document.createElement('div');
     div.style.height = "100%"
     section.append(div);
@@ -52,7 +62,7 @@ cadre.style.border = "dashed 2px black";
 cadre.style.lineHeight = "2";
 
 ////////////    // Style Homepage  
-    // Div0
+// Div0
 divs[0].style.backgroundSize = "100vh";
 
 let div0Intro = document.createElement('span');
@@ -87,49 +97,17 @@ divs[0].append(div0Intro, div0p1, div0p2, boutonJouer, credit);
 
 // Affichage des autres divs
 for (let i = 0; i < divs.length; i++) {
-    if(i != 0){
+    if (i != 0) {
         divs[i].style.display = "none";
     };
 };
-
-////////////    // Style lors du choix du personnage 
-    // Div0
-
-
-
-
-//    // Style lors de la promenade
-// corps.style.backgroundImage = "url('./public/img/greenScreen.png')"
-
-//    // Style Rencontre PokeMoon
-// corps.style.backgroundImage = "none"
-
-//    // Style Combat
-// corps.style.backgroundImage = "none"
-
-//    // Style Winner
-// corps.style.backgroundImage = "none"
-
-//    // Style Défaite
-// corps.style.backgroundImage = "none"
-
-//    // Style Rejouer ?
-// corps.style.backgroundImage = "none"
 
 
 // // commentaires supplémentaires
 //      // /!\ Avertissement : Ce jeu à été créé à but parodique, plusieurs références et inside jokes y ont été placées. Prennez-le au second degré :)
 // -------------------------------------------------------
 // -------------------------------------------------------
-
-
-// // PARTIE 2 : 
-// // Introduction du jeu
-
 //            // Ajouter une option QUITTER (`Vous pouvez quitter à tout moment en appuyant sur la touche Q`)
-// -------------------------------------------------------
-// -------------------------------------------------------
-
 // -------------------------------------------------------
 // -------------------------------------------------------
 // // PARTIE 3:
@@ -145,9 +123,9 @@ let tabPerso = [perso1, perso2];
 
 //    // PokeMoon
 //        // Instances PokeMoon
-let salahess = new PokeMoon("Salahess", 0 ,400, "Feu");
-let carapils = new PokeMoon("Carapils", 0 ,400, "Eau");
-let bugbizarre = new PokeMoon("Bugbizarre", 0 ,400, "Plante");
+let salahess = new PokeMoon("Salahess", 0, 400, "Feu");
+let carapils = new PokeMoon("Carapils", 0, 400, "Eau");
+let bugbizarre = new PokeMoon("Bugbizarre", 0, 400, "Plante");
 //        // Tableau PokeMoon
 let tabPokeMoon = [salahess, carapils, bugbizarre];
 
@@ -175,77 +153,234 @@ let tabAttaques = [griffe, rugissementSala, flammèche, coupDeBoule, mimiQueue, 
 // -------------------------------------------------------
 // // PARTIE 4: Début du jeu
 //        // Choix du personnage
-// let persoUser = "";
-boutonJouer.addEventListener('click', function(){
+let persoUser = "";
+boutonJouer.addEventListener('click', function () {
     divs[0].style.display = "none";
     divs[1].style.display = "block";
 
     // Style deuxième écran : Choix des personnages
-        // Texte
+    // Texte
     let div1p1 = document.createElement('p');
     div1p1.innerHTML = "Veuillez choisir votre personnage :";
     div1p1.style.fontSize = "30px";
-    div1p1.style.margin = "5% 0%";
-        // Boutons
+    div1p1.style.margin = "1% 0%";
+    // Boutons
     let div1Choix1 = document.createElement('button');
     div1Choix1.innerHTML = perso1.nom;
 
     let div1Choix2 = document.createElement('button');
     div1Choix2.innerHTML = perso2.nom;
+    // Images
+    let img1 = document.createElement('img');
+    img1.setAttribute('src', './public/img/Red.png');
+    img1.setAttribute('alt', "");
+    img1.style.height = "350px";
+    img1.style.width = "150px";
+    img1.style.margin = "2%";
 
-    divs[1].append(div1p1, div1Choix1, div1Choix2);
+    let img2 = document.createElement('img');
+    img2.setAttribute('src', './public/img/Leaf.png');
+    img2.setAttribute('alt', "");
+    img2.style.height = "350px";
+    img2.style.width = "150px";
+    img2.style.margin = "2%";
+
+    divs[1].append(div1p1, div1Choix1, div1Choix2, br);
+    divs[1].append(img1, img2);
 
     let div1Boutons = divs[1].querySelectorAll('button');
-    
+
     for (let i = 0; i < div1Boutons.length; i++) {
         div1Boutons[i].style.fontSize = "24px";
-        div1Boutons[i].style.margin = "1%";
+        div1Boutons[i].style.margin = "2%";
         div1Boutons[i].style.padding = "1%";
         div1Boutons[i].style.borderRadius = "5px";
         div1Boutons[i].style.border = "3px solid black";
     };
 
-    //// Bienvenue SuperBoi et promenade
-    div1Choix1.addEventListener('click', function(){
-        divs[1].style.display = "none";
-        divs[2].style.display = "block";
-    
-        let div2p1 = document.createElement('p');
-        div2p1.innerHTML = `Bienvenue dans cette aventure ${perso1.nom} !`;
-        div2p1.style.fontSize = "30px";
+    let div2Suivant = document.createElement('button');
 
-        let div2Suivant = document.createElement('button');
-        div2Suivant.innerHTML = "Suivant";
-        div2Suivant.style.fontSize = "20px";
-        div2Suivant.style.margin = "1%";
-        div2Suivant.style.padding = "1%";
-        div2Suivant.style.borderRadius = "5px";
-        div2Suivant.style.border = "3px solid black";
+    for (let i = 0; i < div1Boutons.length; i++) {
+        // Attribution des noms
+        if (i === 0) {
+            div1Boutons[0].addEventListener('click', function () {
+                persoUser = perso1;
+            });
+        } else if (i === 1) {
+            div1Boutons[1].addEventListener('click', function () {
+                persoUser = perso2;
+            });
+        } else {
 
-        divs[2].append(div2p1, div2Suivant);
+        };
+
+        //// Bienvenue et promenade
+        div1Boutons[i].addEventListener('click', function () {
+            cadre.style.backgroundImage = "url('./public/img/greenScreen.png')";
+            divs[1].style.display = "none";
+            divs[2].style.display = "block";
+
+            let div2p1 = document.createElement('p');
+            div2p1.innerHTML = `Bienvenue dans cette aventure ${persoUser.nom} !`;
+            div2p1.style.fontSize = "30px";
+
+            let div2p2 = document.createElement('p');
+            div2p2.innerHTML = `${persoUser.nom} se promène paisiblement dans le Bois de la Cambre jusqu'à ce qu'${persoUser.genre} remarqua quelque chose de suspect... <br> Mais qu'est-ce ???`;
+            div2p2.style.fontSize = "28px";
+
+            div2Suivant.innerHTML = "Suivant";
+            div2Suivant.style.fontSize = "20px";
+            div2Suivant.style.margin = "1%";
+            div2Suivant.style.padding = "1%";
+            div2Suivant.style.borderRadius = "5px";
+            div2Suivant.style.border = "3px solid black";
+            div2Suivant.style.backgroundColor = "lightgreen";
+
+            divs[2].append(div2p1, div2p2, div2Suivant);
+        });
+    };
+
+    // Apparition PokeMoon
+    div2Suivant.addEventListener('click', function () {
+        divs[2].style.display = "none";
+        divs[3].style.display = "block";
+
+        // Random PokeMoon
+        let pRand = Math.floor(Math.random() * (tabPokeMoon.length));
+        let pokeRandom = tabPokeMoon[pRand];
+        // Paragraphe
+        let div3p1 = document.createElement('p');
+        div3p1.innerHTML = `Un ${pokeRandom.nom} sauvage apparaît !!!`;
+        div3p1.style.fontSize = "30px";
+
+        let img3 = document.createElement('img');
+        switch(pRand){
+            case 0:
+                img3.setAttribute('src', './public/img/Salameche2.png');
+                break;
+            case 1:
+                img3.setAttribute('src', './public/img/Carapuce2.png');
+                break;
+            case 2:
+                img3.setAttribute('src', './public/img/Bulbizarre2.png');
+                break;
+        }
+        img3.setAttribute('alt', "");
+        img3.style.height = "350px";
+        img3.style.width = "350px";
+  
+        for (let i = 0; i < 2; i++) {
+            var option = document.createElement('button');
+            divs[3].append(option);
+            var options = divs[3].querySelectorAll('button');
+
+            // style button
+            option.style.fontSize = "20px";
+            option.style.margin = "1%";
+            option.style.padding = "1%";
+            option.style.borderRadius = "5px";
+            option.style.border = "3px solid black";
+            if(i === 0){
+                options[0].innerHTML = "Choisir un PokeMoon";
+                options[0].style.backgroundColor = "lightgreen";
+                // Option Choisir un PokeMoon
+                options[0].addEventListener('click', function(){
+                    cadre.style.backgroundImage = "url('./public/img/textureBeige.png')";
+                    divs[3].style.display = "none";
+                    divs[5].style.display = "block";
+
+                    // Texte
+                    let div5p1 = document.createElement('p');
+                    div5p1.innerHTML = "Quel PokeMoon souhaitez-vous mettre en jeu ?";
+                    div5p1.style.fontSize = "30px";
+
+                    // Choix PokeMoons
+                    for (let i = 0; i < 3; i++) {
+                        // Boutons
+                        let choixPoke = document.createElement('button');
+                        choixPoke.style.fontSize = "20px";
+                        choixPoke.style.margin = "1%";
+                        choixPoke.style.padding = "1%";
+                        choixPoke.style.borderRadius = "5px";
+                        choixPoke.style.border = "3px solid black";
+
+                        // Images PokeMoons
+                        let choixImg = document.createElement('img');
+                        choixImg.style.height = "350px";
+                        choixImg.style.width = "15px";
+
+                        divs[5].append(choixPoke, br, br, choixImg);
+                    };
+                    
+                    // Tous les boutons choix et images
+                    let choixPokes = divs[5].querySelectorAll('button');
+                    let choixImgs = divs[5].querySelectorAll('img');
+
+                    for (let i = 0; i < choixPokes.length; i++) {
+                        // Salahess
+                        if (i === 0){
+                            choixImgs[0].setAttribute('src', './public/img/Salameche1.png');
+                            choixPokes[0].innerHTML = "Salahess";
+
+                        } else if (i === 1){
+                            // Carapils
+                            choixImgs[1].setAttribute('src', './public/img/Carapuce1.png');
+                            choixPokes[1].innerHTML = "Carapils";
+
+
+                        } else if (i === 2){
+                            // Bugbizarre
+                            choixImgs[2].setAttribute('src', './public/img/Bulbizarre1.png');
+                            choixPokes[2].innerHTML = "BugBizarre";
+
+
+                        }
+                        
+                    };
+
+                    divs[5].prepend(div5p1);
+
+                });
+
+            } else if (i === 1){
+                options[1].innerHTML = "Fuir";
+                options[1].style.backgroundColor = "red";
+                // Option fuir
+                options[1].addEventListener('click', function(){
+                    cadre.style.backgroundImage = "url('./public/img/textureBeige.png')";
+                    divs[3].style.display = "none";
+                    divs[4].style.display = "block";
+
+                    // Texte
+                    let div4p1 = document.createElement('p');
+                    div4p1.innerHTML = `Tsk tsk tsk... Je suis très déçue jeune Padawan`;
+                    div4p1.style.fontSize = "30px";
+                    div4p1.style.fontWeight = "bold";
+                    // Image
+                    let imgFuir = document.createElement('img');
+                    imgFuir.setAttribute('src', "./public/img/BabyYoda.png");
+                    imgFuir.style.height = "400px";
+                    imgFuir.style.width = "400px";
+                    // Petite description
+                    let div4p2 = document.createElement('p');
+                    div4p2.innerHTML = "Le jeu s'arrête ici";
+                    div4p2.style.textAlign = "end";
+
+                    divs[4].append(div4p1, imgFuir, div4p2);
+                });
+            } else{
+                console.log(`nope`)
+            }
+        }
+
+        divs[3].prepend(div3p1, img3, br);
+
     });
-    //// Bienvenue Wondergal et promenade
-    div1Choix2.addEventListener('click', function(){
-        divs[1].style.display = "none";
-        divs[2].style.display = "block";
-    
-        let div2p1 = document.createElement('p');
-        div2p1.innerHTML = `Bienvenue dans cette aventure ${perso2.nom} !`;
-        div2p1.style.fontSize = "30px";
 
-        let div2Suivant = document.createElement('button');
-        div2Suivant.innerHTML = "Suivant";
-        div2Suivant.style.fontSize = "20px";
-        div2Suivant.style.margin = "1%";
-        div2Suivant.style.padding = "1%";
-        div2Suivant.style.borderRadius = "5px";
-        div2Suivant.style.border = "3px solid black";
 
-        divs[2].append(div2p1, div2Suivant);
-    });
-
-    
 });
+console.log(divs);
+console.log(divs.length);
 
 //    // Déclaration des variables
 let continuer;
@@ -256,32 +391,17 @@ let quitter; // Ptet réutiliser à l'intérieur pour option Q
 // -------------------------------------------------------
 // // Boucle permettant de relancer la partie à partir de <<Promenade>>
 
-// do {
-        // // -------------------------------------------------------
-//        // Le personnage se promène
-//     alert(`${persoUser.nom} se promène paisiblement dans le Bois de la Cambre jusqu'à ce qu'${persoUser.genre} remarqua quelque chose de suspect.. Mais qu'est-ce ???`);
-    
-// //         // Random PokeMoon
-//          let pRand = Math.floor(Math.random()*(tabPokeMoon.length -1));
-//          let pokeRandom = tabPokeMoon[pRand];
-    
-// //        // Apparition PokeMoon
-//     alert(`Un ${pokeRandom.nom} sauvage apparaît !!!`);
 
-        // // -------------------------------------------------------
-//        // Choix options
-    // option = prompt(`Que choississez-vous de faire ?\nA. CHOISIR UN POKEMOON\nB. FUIR`).toLowerCase();
 
-    //             // Choix option = Choisir un PokeMoon
-    // if (option == "a") {
-    //     pokeUser = prompt(`Quel PokeMoon souhaitez-vous mettre en jeu ?\nA. ${salahess.nom}\nB. ${carapils.nom}\nC. ${bugbizarre.nom}`).toLowerCase();
+//             // Choix option = Choisir un PokeMoon
+// if (option == "a") {
+//     pokeUser = prompt(`Quel PokeMoon souhaitez-vous mettre en jeu ?\nA. ${salahess.nom}\nB. ${carapils.nom}\nC. ${bugbizarre.nom}`).toLowerCase();
 
-    // } 
+// } 
 //                // Choix option = Fuir (Sort du jeu + déshonore la famille)
-    // else {
-    //     alert(`Tsk tsk tsk... Je suis très déçue jeune Padawan`);
-    //     alert(`La sentence est irrevocable. Ton aventure s'arrête ici...`)
-    // }
+// else {
+//     alert(`La sentence est irrevocable. Ton aventure s'arrête ici...`)
+// }
 
 // // Continuer à jouer ?
 //     continuer = prompt(`Souhaitez-vous continuer à jouer ?\nA. OUI\nAutre. NON`).toLowerCase();
@@ -304,48 +424,6 @@ let quitter; // Ptet réutiliser à l'intérieur pour option Q
 // -------------------------------------------------------
 // Tests
 
-
-// // TEST
-
-
-//        // Style lors du choix du personnage
-//     p1[0].innerHTML = "Veuillez choisir votre personnage :"
-
-//     choix1[0].innerHTML = "SuperBoi"
-//     choix2[0].innerHTML = "WonderGal"
-// }
-
-// let credit = document.getElementsByClassName('credit');
-// credit[0].style.padding = "8% 0% 0% 0%"
-// credit[0].style.fontSize = "16px"
-
-// let choix1 = document.getElementsByClassName('choix1');
-
-// let choix2 = document.getElementsByClassName('choix2');
-
-
-
-
-
-//        // Choix du personnage
-//    // Style lors du choix du personnage
-// let persoUser = prompt(`Veuillez choisir votre personnage :\nA. ${perso1.nom}\nB. ${perso2.nom}`).toLowerCase();
-
-// do {
-//     if (persoUser == "a"){
-//         persoUser = perso1;
-//         alert(`Bienvenue dans cette aventure ${persoUser.nom} !`);
-//     } else if (persoUser == "b") {
-//         persoUser = perso2;
-//         alert(`Bienvenue dans cette aventure ${persoUser.nom} !`);
-//     } else {
-//         persoUser = prompt(`Oopss.. Une erreur est arrivée. Veuillez réessayer.\nQuel est votre personnage ?\nA. ${perso1.nom}\nB. ${perso2.nom}`).toLowerCase();
-//     };
-// } while (persoUser == ("a"||"b"));
-
-
-
-
 //    // Style lors de la promenade
 // corps.style.backgroundImage = "url('./public/img/greenScreen.png')"
 
@@ -363,50 +441,3 @@ let quitter; // Ptet réutiliser à l'intérieur pour option Q
 
 //    // Style Rejouer ?
 // corps.style.backgroundImage = "none"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Insérer dom dans JS (bruuuuuuuuh)
-
-// Event Boutons OnClick
-
-    // ATTENTION POSITION => Condition
-// HTML
-{/* <p>Quel personnage choisis-tu ?</p> */}
-{/* <span>SuperBoi</span> <span>WonderGal</span> */}
-
-// let choix = document.getElementsByTagName('span')
-// choix[0].onclick = function() {myFunction()};
-// choix[1].onclick = function() {myFunction2()};
-
-// console.log(choix)
-
-// function myFunction(){
-//     choix[0].innerHTML = "ONE"
-// }
-// function myFunction2(){
-//     choix[1].innerHTML = "TWO"
-// }
-
