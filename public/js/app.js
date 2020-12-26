@@ -11,7 +11,7 @@ import {
 } from "./attaques.js"
 
 // -------------------------------------------------------
-// -------------------------------------------------------q
+// -------------------------------------------------------
 
 // -------------------------------------------------------
 // -------------------------------------------------------
@@ -71,7 +71,7 @@ div0Intro.style.fontWeight = "bold";
 div0Intro.style.fontSize = "28px";
 
 let div0p1 = document.createElement('p');
-div0p1.innerHTML = "Toute ressemblance avec un autre jeu ou personnages existants n'est que pure coïncidence °£°";
+div0p1.innerHTML = "Voici un jeu inspiré des combats Pokemon. Have fun ! ";
 div0p1.style.fontSize = "24px";
 div0p1.style.margin = "5% 0%";
 
@@ -145,7 +145,11 @@ let rugissementBug = new Attaques("Rugissement", 0, 100, "Normal", 3);
 let fouetLianes = new Attaques("Fouet Lianes", 40, 100, "Plante", 7);
 //        // Tableau Attaques
 //            // Insérer l'option "Fuir" ET Charge pour Carapuce (trier dans un tableau inférieur ?)
-let tabAttaques = [griffe, rugissementSala, flammèche, coupDeBoule, mimiQueue, pistoletaO, rugissementBug, fouetLianes]
+let tabAttaques = [griffe, rugissementSala, flammèche, coupDeBoule, mimiQueue, pistoletaO, rugissementBug, fouetLianes];
+let tabAttaquesSala = [griffe, rugissementSala, flammèche, "Fuir"];
+let tabAttaquesCara = [coupDeBoule, mimiQueue, pistoletaO, "Fuir"];
+let tabAttaquesBug = [coupDeBoule, rugissementBug, fouetLianes, "Fuir"];
+
 // -------------------------------------------------------
 // -------------------------------------------------------
 
@@ -154,6 +158,7 @@ let tabAttaques = [griffe, rugissementSala, flammèche, coupDeBoule, mimiQueue, 
 // // PARTIE 4: Début du jeu
 //        // Choix du personnage
 let persoUser = "";
+let pokeUser = "";
 boutonJouer.addEventListener('click', function () {
     divs[0].style.display = "none";
     divs[1].style.display = "block";
@@ -285,7 +290,7 @@ boutonJouer.addEventListener('click', function () {
                 options[0].style.backgroundColor = "lightgreen";
                 // Option Choisir un PokeMoon
                 options[0].addEventListener('click', function(){
-                    cadre.style.backgroundImage = "url('./public/img/textureBeige.png')";
+                    cadre.style.backgroundImage = "url('./public/img/textureBeige.jpeg')";
                     divs[3].style.display = "none";
                     divs[5].style.display = "block";
 
@@ -299,17 +304,21 @@ boutonJouer.addEventListener('click', function () {
                         // Boutons
                         let choixPoke = document.createElement('button');
                         choixPoke.style.fontSize = "20px";
-                        choixPoke.style.margin = "1%";
+                        choixPoke.style.margin = "7%";
                         choixPoke.style.padding = "1%";
                         choixPoke.style.borderRadius = "5px";
                         choixPoke.style.border = "3px solid black";
 
+                        divs[5].append(choixPoke, br);
+                    };
+                    for (let i = 0; i < 3; i++) {
                         // Images PokeMoons
                         let choixImg = document.createElement('img');
-                        choixImg.style.height = "350px";
-                        choixImg.style.width = "15px";
+                        choixImg.style.height = "200px";
+                        choixImg.style.width = "160px";
+                        choixImg.style.margin = "4%";
 
-                        divs[5].append(choixPoke, br, br, choixImg);
+                        divs[5].append(choixImg);
                     };
                     
                     // Tous les boutons choix et images
@@ -320,34 +329,91 @@ boutonJouer.addEventListener('click', function () {
                         // Salahess
                         if (i === 0){
                             choixImgs[0].setAttribute('src', './public/img/Salameche1.png');
-                            choixPokes[0].innerHTML = "Salahess";
-
+                            choixPokes[0].innerHTML = `${salahess.nom}`;
                         } else if (i === 1){
                             // Carapils
                             choixImgs[1].setAttribute('src', './public/img/Carapuce1.png');
-                            choixPokes[1].innerHTML = "Carapils";
-
-
+                            choixPokes[1].innerHTML = `${carapils.nom}`;
                         } else if (i === 2){
                             // Bugbizarre
                             choixImgs[2].setAttribute('src', './public/img/Bulbizarre1.png');
-                            choixPokes[2].innerHTML = "BugBizarre";
-
-
+                            choixPokes[2].innerHTML = `${bugbizarre.nom}`;
                         }
-                        
                     };
-
                     divs[5].prepend(div5p1);
 
-                });
+                    // Choix PokeMoon
+                        // Salahess
+                    choixPokes[0].addEventListener('click', function (){
+                        pokeUser = salahess;
 
+                        divs[5].style.display = "none";
+                        divs[6].style.display = "block";
+
+                        let divAttaques = document.createElement('div');
+                        divAttaques.style.border = "2px solid black";
+                        divAttaques.style.borderRadius = "5px";
+                        divAttaques.style.display = "flex";
+                        divAttaques.style.flexWrap = "wrap";
+                        divAttaques.style.width = "150px";
+                        divAttaques.style.padding = "2%";
+
+                        divAttaques.style.fontSize = "25px";
+
+
+                        divs[6].append(divAttaques);
+
+                        for (let i = 0; i < tabAttaquesSala.length; i++) {
+                            let div6attaque = document.createElement('button');
+                            div6attaque.style.margin = "0.5%";
+                            divAttaques.append(div6attaque);
+                            let div6attaques = divs[6].querySelectorAll('button');
+                            switch(i){
+                                case 0:
+                                    div6attaques[0].innerHTML = `${tabAttaquesSala[0].nom}`;
+                                    break;
+                                case 1:
+                                    div6attaques[1].innerHTML = `${tabAttaquesSala[1].nom}`;
+                                    break;
+                                case 2:
+                                    div6attaques[2].innerHTML = `${tabAttaquesSala[2].nom}`;
+                                    break;
+                                case 3:
+                                    div6attaques[3].innerHTML = `${tabAttaquesSala[3]}`;
+                                    break;
+                            };
+                        }
+
+                    });
+                        // Carapils
+                    choixPokes[0].addEventListener('click', function (){
+                        pokeUser = carapils;
+
+                        divs[5].style.display = "none";
+                        divs[6].style.display = "block";
+
+
+                    });
+                        // Bugbizarre
+                    choixPokes[0].addEventListener('click', function (){
+                        pokeUser = bugbizarre;
+
+                        divs[5].style.display = "none";
+                        divs[6].style.display = "block";
+
+
+                    });
+
+
+
+                });
+            // Option fuir
             } else if (i === 1){
                 options[1].innerHTML = "Fuir";
                 options[1].style.backgroundColor = "red";
                 // Option fuir
                 options[1].addEventListener('click', function(){
-                    cadre.style.backgroundImage = "url('./public/img/textureBeige.png')";
+                    cadre.style.backgroundImage = "url('./public/img/textureBeige.jpeg')";
                     divs[3].style.display = "none";
                     divs[4].style.display = "block";
 
@@ -379,23 +445,16 @@ boutonJouer.addEventListener('click', function () {
 
 
 });
+
 console.log(divs);
 console.log(divs.length);
 
 //    // Déclaration des variables
 let continuer;
-let option;
-let pokeUser;
 
 let quitter; // Ptet réutiliser à l'intérieur pour option Q
 // -------------------------------------------------------
 // // Boucle permettant de relancer la partie à partir de <<Promenade>>
-
-
-
-//             // Choix option = Choisir un PokeMoon
-// if (option == "a") {
-//     pokeUser = prompt(`Quel PokeMoon souhaitez-vous mettre en jeu ?\nA. ${salahess.nom}\nB. ${carapils.nom}\nC. ${bugbizarre.nom}`).toLowerCase();
 
 // } 
 //                // Choix option = Fuir (Sort du jeu + déshonore la famille)
@@ -406,7 +465,6 @@ let quitter; // Ptet réutiliser à l'intérieur pour option Q
 // // Continuer à jouer ?
 //     continuer = prompt(`Souhaitez-vous continuer à jouer ?\nA. OUI\nAutre. NON`).toLowerCase();
 
-// } while (continuer == "a");
 
 // // Quitter / Fin du jeu
 // quitter = alert(`À très bientôt !`);
@@ -423,12 +481,6 @@ let quitter; // Ptet réutiliser à l'intérieur pour option Q
 // -------------------------------------------------------
 // -------------------------------------------------------
 // Tests
-
-//    // Style lors de la promenade
-// corps.style.backgroundImage = "url('./public/img/greenScreen.png')"
-
-//    // Style Rencontre PokeMoon
-// corps.style.backgroundImage = "none"
 
 //    // Style Combat
 // corps.style.backgroundImage = "none"
