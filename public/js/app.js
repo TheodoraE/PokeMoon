@@ -28,7 +28,8 @@ let sectionTitre = document.createElement('section');
 // Div Titre
 let divTitre = document.createElement('div');
 let titre = document.createElement('h1');
-titre.innerHTML = "POKEMOON"
+titre.innerHTML = "POKEMOON";
+titre.style.margin = "1%";
 divTitre.append(titre);
 
 sectionTitre.append(divTitre);
@@ -38,7 +39,7 @@ let section = document.createElement('section');
 section.setAttribute('id', "cadre");
 section.style.textAlign = "center"
 // Div de jeu
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 10; i++) {
     let div = document.createElement('div');
     div.style.height = "100%"
     section.append(div);
@@ -89,7 +90,7 @@ boutonJouer.style.borderRadius = "5px";
 boutonJouer.style.border = "3px solid black";
 
 let credit = document.createElement('p');
-credit.innerHTML = "- Codé et stylisé par E.T. -";
+credit.innerHTML = "- Codé et stylisé par E.T. - <br> Les images utilisées proviennent du site : https://www.hiclipart.com/";
 credit.style.padding = "7% 0% 0% 0%";
 credit.style.fontSize = "16px";
 
@@ -102,15 +103,9 @@ for (let i = 0; i < divs.length; i++) {
     };
 };
 
-
-// // commentaires supplémentaires
-//      // /!\ Avertissement : Ce jeu à été créé à but parodique, plusieurs références et inside jokes y ont été placées. Prennez-le au second degré :)
 // -------------------------------------------------------
 // -------------------------------------------------------
-//            // Ajouter une option QUITTER (`Vous pouvez quitter à tout moment en appuyant sur la touche Q`)
-// -------------------------------------------------------
-// -------------------------------------------------------
-// // PARTIE 3:
+// // PARTIE 4:
 // // Déclarer les objets et variables
 
 //     // Personnages
@@ -155,7 +150,7 @@ let tabAttaquesBug = [coupDeBoule, rugissementBug, fouetLianes, "Fuir"];
 
 // -------------------------------------------------------
 // -------------------------------------------------------
-// // PARTIE 4: Début du jeu
+// // PARTIE 5: Début du jeu
 //        // Choix du personnage
 let persoUser = "";
 let pokeUser = "";
@@ -259,7 +254,7 @@ boutonJouer.addEventListener('click', function () {
         div3p1.style.fontSize = "30px";
 
         let img3 = document.createElement('img');
-        switch(pRand){
+        switch (pRand) {
             case 0:
                 img3.setAttribute('src', './public/img/Salameche2.png');
                 break;
@@ -273,7 +268,7 @@ boutonJouer.addEventListener('click', function () {
         img3.setAttribute('alt', "");
         img3.style.height = "350px";
         img3.style.width = "350px";
-  
+
         for (let i = 0; i < 2; i++) {
             var option = document.createElement('button');
             divs[3].append(option);
@@ -285,11 +280,11 @@ boutonJouer.addEventListener('click', function () {
             option.style.padding = "1%";
             option.style.borderRadius = "5px";
             option.style.border = "3px solid black";
-            if(i === 0){
+            if (i === 0) {
                 options[0].innerHTML = "Choisir un PokeMoon";
                 options[0].style.backgroundColor = "lightgreen";
                 // Option Choisir un PokeMoon
-                options[0].addEventListener('click', function(){
+                options[0].addEventListener('click', function () {
                     cadre.style.backgroundImage = "url('./public/img/textureBeige.jpeg')";
                     divs[3].style.display = "none";
                     divs[5].style.display = "block";
@@ -304,7 +299,7 @@ boutonJouer.addEventListener('click', function () {
                         // Boutons
                         let choixPoke = document.createElement('button');
                         choixPoke.style.fontSize = "20px";
-                        choixPoke.style.margin = "7%";
+                        choixPoke.style.margin = "5% 6% 5% 6%";
                         choixPoke.style.padding = "1%";
                         choixPoke.style.borderRadius = "5px";
                         choixPoke.style.border = "3px solid black";
@@ -320,21 +315,21 @@ boutonJouer.addEventListener('click', function () {
 
                         divs[5].append(choixImg);
                     };
-                    
+
                     // Tous les boutons choix et images
                     let choixPokes = divs[5].querySelectorAll('button');
                     let choixImgs = divs[5].querySelectorAll('img');
 
                     for (let i = 0; i < choixPokes.length; i++) {
                         // Salahess
-                        if (i === 0){
+                        if (i === 0) {
                             choixImgs[0].setAttribute('src', './public/img/Salameche1.png');
                             choixPokes[0].innerHTML = `${salahess.nom}`;
-                        } else if (i === 1){
+                        } else if (i === 1) {
                             // Carapils
                             choixImgs[1].setAttribute('src', './public/img/Carapuce1.png');
                             choixPokes[1].innerHTML = `${carapils.nom}`;
-                        } else if (i === 2){
+                        } else if (i === 2) {
                             // Bugbizarre
                             choixImgs[2].setAttribute('src', './public/img/Bulbizarre1.png');
                             choixPokes[2].innerHTML = `${bugbizarre.nom}`;
@@ -343,76 +338,419 @@ boutonJouer.addEventListener('click', function () {
                     divs[5].prepend(div5p1);
 
                     // Choix PokeMoon
-                        // Salahess
-                    choixPokes[0].addEventListener('click', function (){
+                    // Salahess
+                    choixPokes[0].addEventListener('click', function () {
                         pokeUser = salahess;
 
                         divs[5].style.display = "none";
                         divs[6].style.display = "block";
+
+                        // Affichage de l'adversaire
+                        let divAdversaire = document.createElement('div');
+                        divAdversaire.style.height = "250px";
+                        divAdversaire.style.display = "flex";
+                        divAdversaire.style.flexDirection = "column";
+
+                        let div6imgadv = document.createElement('img');
+                        switch (pokeRandom) {
+                            case salahess:
+                                div6imgadv.setAttribute('src', './public/img/Salameche2.png');
+                                break;
+                            case carapils:
+                                div6imgadv.setAttribute('src', './public/img/Carapuce2.png');
+                                break;
+                            case bugbizarre:
+                                div6imgadv.setAttribute('src', './public/img/Bulbizarre2.png');
+                                break;
+                        }
+                        div6imgadv.setAttribute('alt', "");
+                        div6imgadv.style.height = "175px";
+                        div6imgadv.style.width = "175px";
+                        div6imgadv.style.display = "flex";
+                        div6imgadv.style.placeSelf = "flex-end";
+
+                        // Niveau de vie
+                        let pvAdv = document.createElement('span');
+                        pvAdv.innerHTML = `${pokeRandom.pv}/400 pv`;
+                        pvAdv.style.fontSize = "20px";
+                        pvAdv.style.fontWeight = "bold";
+                        pvAdv.style.textDecoration = "underline";
+                        pvAdv.style.margin = "0% 2%";
+                        pvAdv.style.display = "flex";
+                        pvAdv.style.placeSelf = "flex-end";
+
+                        divAdversaire.append(div6imgadv, pvAdv);
+
+                        // Affichage de mon Pokemon
+                        let divUser = document.createElement('div');
+                        divUser.style.width = "30%";
+
+                        let pvUser = document.createElement('span');
+                        pvUser.innerHTML = `${pokeUser.pv}/400 pv`;
+                        pvUser.style.fontSize = "20px";
+                        pvUser.style.fontWeight = "bold";
+                        pvUser.style.textDecoration = "underline";
+                        pvUser.style.margin = "0% 2%";
+                        pvUser.style.marginBottom = "5%";
+                        pvUser.style.display = "flex";
+                        pvUser.style.placeSelf = "flex-end";
+
+                        let div6imgpoke = document.createElement('img');
+                        switch (pokeUser) {
+                            case salahess:
+                                div6imgpoke.setAttribute('src', './public/img/Salameche2.png');
+                                break;
+                            case carapils:
+                                div6imgpoke.setAttribute('src', './public/img/Carapuce2.png');
+                                break;
+                            case bugbizarre:
+                                div6imgpoke.setAttribute('src', './public/img/Bulbizarre2.png');
+                                break;
+                        };
+                        div6imgpoke.setAttribute('alt', "");
+                        div6imgpoke.style.height = "175px";
+                        div6imgpoke.style.width = "175px";
+
+                        divUser.append(div6imgpoke, pvUser);
+
+                        divs[6].append(divAdversaire, divUser);
+
+                        // Affichage des commandes
+                        let divAttaques = document.createElement('div');
+                        divAttaques.style.border = "2px solid black";
+                        divAttaques.style.borderRadius = "5px";
+                        divAttaques.style.display = "flex";
+                        divAttaques.style.flexWrap = "wrap";
+                        divAttaques.style.justifyContent = "center";
+                        divAttaques.style.width = "200px";
+                        divAttaques.style.padding = "2%";
+
+                        divAttaques.style.fontSize = "25px";
+
+
+                        divUser.append(divAttaques);
+
+                        for (let i = 0; i < tabAttaquesSala.length; i++) {
+                            let div6attaque = document.createElement('button');
+                            div6attaque.style.margin = "0.5%";
+                            div6attaque.style.border = "none";
+                            div6attaque.style.fontSize = "16px";
+                            div6attaque.style.backgroundColor = "transparent";
+                            div6attaque.style.fontWeight = "bold";
+
+                            divAttaques.append(div6attaque);
+                            let div6attaques = divs[6].querySelectorAll('button');
+                            switch (i) {
+                                case 0:
+                                    div6attaques[0].innerHTML = `${tabAttaquesSala[0].nom}`;
+                                    // div6attaques[0] = tabAttaquesSala[0];
+                                    // Griffe
+                                    
+                                    div6attaques[0].addEventListener('click', function(){
+                                        pokeRandom.pv -= tabAttaquesSala[0].degat;
+                                        pokeRandom.pv =
+                                        console.log(pokeRandom.pv);
+                                    });
+                                    break;
+                                case 1:
+                                    div6attaques[1].innerHTML = `${tabAttaquesSala[1].nom}`;
+                                    // Rugissement
+
+                                    break;
+                                case 2:
+                                    div6attaques[2].innerHTML = `${tabAttaquesSala[2].nom}`;
+                                    // Flammèche
+                                    break;
+                                case 3:
+                                    div6attaques[3].innerHTML = `${tabAttaquesSala[3]}`;
+                                    //fuir
+                                    div6attaques[3].addEventListener('click', function(){
+                                        // Nouvelle page
+                                        divs[6].style.display = "none";
+                                        options[1].click();
+                                    });
+                                    break;
+                            };
+                        };
+                        let div6Faire = document.createElement('p');
+                        div6Faire.innerHTML = `Que voulez-vous faire ?`;
+                        div6Faire.style.fontSize = "18px";
+                        div6Faire.style.margin = "0%";
+                        divAttaques.prepend(div6Faire);
+                    });
+                    // Carapils
+                    choixPokes[1].addEventListener('click', function () {
+                        pokeUser = carapils;
+
+                        divs[5].style.display = "none";
+                        divs[6].style.display = "block";
+
+                        // Affichage de l'adversaire
+                        let divAdversaire = document.createElement('div');
+                        divAdversaire.style.height = "250px";
+                        divAdversaire.style.display = "flex";
+                        divAdversaire.style.flexDirection = "column";
+
+                        let div6imgadv = document.createElement('img');
+                        switch (pokeRandom) {
+                            case salahess:
+                                div6imgadv.setAttribute('src', './public/img/Salameche2.png');
+                                break;
+                            case carapils:
+                                div6imgadv.setAttribute('src', './public/img/Carapuce2.png');
+                                break;
+                            case bugbizarre:
+                                div6imgadv.setAttribute('src', './public/img/Bulbizarre2.png');
+                                break;
+                        }
+                        div6imgadv.setAttribute('alt', "");
+                        div6imgadv.style.height = "175px";
+                        div6imgadv.style.width = "175px";
+                        div6imgadv.style.display = "flex";
+                        div6imgadv.style.placeSelf = "flex-end";
+
+
+                        let pvAdv = document.createElement('span');
+                        pvAdv.innerHTML = `${pokeRandom.pv}/400 pv`;
+                        pvAdv.style.fontSize = "20px";
+                        pvAdv.style.fontWeight = "bold";
+                        pvAdv.style.textDecoration = "underline";
+                        pvAdv.style.margin = "0% 2%";
+                        pvAdv.style.display = "flex";
+                        pvAdv.style.placeSelf = "flex-end";
+
+                        divAdversaire.append(div6imgadv, pvAdv);
+
+                        // Affichage de mon Pokemon
+                        let divUser = document.createElement('div');
+                        divUser.style.width = "30%";
+
+                        let pvUser = document.createElement('span');
+                        pvUser.innerHTML = `${pokeUser.pv}/400 pv`;
+                        pvUser.style.fontSize = "20px";
+                        pvUser.style.fontWeight = "bold";
+                        pvUser.style.textDecoration = "underline";
+                        pvUser.style.margin = "0% 2%";
+                        pvUser.style.marginBottom = "5%";
+                        pvUser.style.display = "flex";
+                        pvUser.style.placeSelf = "flex-end";
+
+                        let div6imgpoke = document.createElement('img');
+                        switch (pokeUser) {
+                            case salahess:
+                                div6imgpoke.setAttribute('src', './public/img/Salameche2.png');
+                                break;
+                            case carapils:
+                                div6imgpoke.setAttribute('src', './public/img/Carapuce2.png');
+                                break;
+                            case bugbizarre:
+                                div6imgpoke.setAttribute('src', './public/img/Bulbizarre2.png');
+                                break;
+                        };
+                        div6imgpoke.setAttribute('alt', "");
+                        div6imgpoke.style.height = "175px";
+                        div6imgpoke.style.width = "175px";
+
+                        divUser.append(div6imgpoke, pvUser);
+
+                        divs[6].append(divAdversaire, divUser);
+
+                        // Affichage des commandes
 
                         let divAttaques = document.createElement('div');
                         divAttaques.style.border = "2px solid black";
                         divAttaques.style.borderRadius = "5px";
                         divAttaques.style.display = "flex";
                         divAttaques.style.flexWrap = "wrap";
-                        divAttaques.style.width = "150px";
+                        divAttaques.style.justifyContent = "center";
+                        divAttaques.style.width = "280px";
                         divAttaques.style.padding = "2%";
 
                         divAttaques.style.fontSize = "25px";
 
 
-                        divs[6].append(divAttaques);
+                        divUser.append(divAttaques);
 
-                        for (let i = 0; i < tabAttaquesSala.length; i++) {
+                        for (let i = 0; i < tabAttaquesCara.length; i++) {
                             let div6attaque = document.createElement('button');
                             div6attaque.style.margin = "0.5%";
+                            div6attaque.style.border = "none";
+                            div6attaque.style.fontSize = "16px";
+                            div6attaque.style.backgroundColor = "transparent";
+                            div6attaque.style.fontWeight = "bold";
+
                             divAttaques.append(div6attaque);
                             let div6attaques = divs[6].querySelectorAll('button');
-                            switch(i){
+                            switch (i) {
                                 case 0:
-                                    div6attaques[0].innerHTML = `${tabAttaquesSala[0].nom}`;
+                                    div6attaques[0].innerHTML = `${tabAttaquesCara[0].nom}`;
                                     break;
                                 case 1:
-                                    div6attaques[1].innerHTML = `${tabAttaquesSala[1].nom}`;
+                                    div6attaques[1].innerHTML = `${tabAttaquesCara[1].nom}`;
                                     break;
                                 case 2:
-                                    div6attaques[2].innerHTML = `${tabAttaquesSala[2].nom}`;
+                                    div6attaques[2].innerHTML = `${tabAttaquesCara[2].nom}`;
                                     break;
                                 case 3:
-                                    div6attaques[3].innerHTML = `${tabAttaquesSala[3]}`;
+                                    div6attaques[3].innerHTML = `${tabAttaquesCara[3]}`;
+
+                                    //fuir
+                                    div6attaques[3].addEventListener('click', function(){
+                                        // Nouvelle page
+                                        divs[6].style.display = "none";
+                                        options[1].click();
+                                    });
                                     break;
                             };
-                        }
-
+                        };
+                        let div6Faire = document.createElement('p');
+                        div6Faire.innerHTML = `Que voulez-vous faire ?`;
+                        div6Faire.style.fontSize = "18px";
+                        div6Faire.style.margin = "0%";
+                        divAttaques.prepend(div6Faire);
                     });
-                        // Carapils
-                    choixPokes[0].addEventListener('click', function (){
-                        pokeUser = carapils;
-
-                        divs[5].style.display = "none";
-                        divs[6].style.display = "block";
-
-
-                    });
-                        // Bugbizarre
-                    choixPokes[0].addEventListener('click', function (){
+                    // Bugbizarre
+                    choixPokes[2].addEventListener('click', function () {
                         pokeUser = bugbizarre;
 
                         divs[5].style.display = "none";
                         divs[6].style.display = "block";
 
+                        // Affichage de l'adversaire
+                        let divAdversaire = document.createElement('div');
+                        divAdversaire.style.height = "250px";
+                        divAdversaire.style.display = "flex";
+                        divAdversaire.style.flexDirection = "column";
+
+                        let div6imgadv = document.createElement('img');
+                        switch (pokeRandom) {
+                            case salahess:
+                                div6imgadv.setAttribute('src', './public/img/Salameche2.png');
+                                break;
+                            case carapils:
+                                div6imgadv.setAttribute('src', './public/img/Carapuce2.png');
+                                break;
+                            case bugbizarre:
+                                div6imgadv.setAttribute('src', './public/img/Bulbizarre2.png');
+                                break;
+                        }
+                        div6imgadv.setAttribute('alt', "");
+                        div6imgadv.style.height = "175px";
+                        div6imgadv.style.width = "175px";
+                        div6imgadv.style.display = "flex";
+                        div6imgadv.style.placeSelf = "flex-end";
+
+
+                        let pvAdv = document.createElement('span');
+                        pvAdv.innerHTML = `${pokeRandom.pv}/400 pv`;
+                        pvAdv.style.fontSize = "20px";
+                        pvAdv.style.fontWeight = "bold";
+                        pvAdv.style.textDecoration = "underline";
+                        pvAdv.style.margin = "0% 2%";
+                        pvAdv.style.display = "flex";
+                        pvAdv.style.placeSelf = "flex-end";
+
+                        divAdversaire.append(div6imgadv, pvAdv);
+
+                        // Affichage de mon Pokemon
+                        let divUser = document.createElement('div');
+                        divUser.style.width = "30%";
+
+                        let pvUser = document.createElement('span');
+                        pvUser.innerHTML = `${pokeUser.pv}/400 pv`;
+                        pvUser.style.fontSize = "20px";
+                        pvUser.style.fontWeight = "bold";
+                        pvUser.style.textDecoration = "underline";
+                        pvUser.style.margin = "0% 2%";
+                        pvUser.style.marginBottom = "5%";
+                        pvUser.style.display = "flex";
+                        pvUser.style.placeSelf = "flex-end";
+
+                        let div6imgpoke = document.createElement('img');
+                        switch (pokeUser) {
+                            case salahess:
+                                div6imgpoke.setAttribute('src', './public/img/Salameche2.png');
+                                break;
+                            case carapils:
+                                div6imgpoke.setAttribute('src', './public/img/Carapuce2.png');
+                                break;
+                            case bugbizarre:
+                                div6imgpoke.setAttribute('src', './public/img/Bulbizarre2.png');
+                                break;
+                        };
+                        div6imgpoke.setAttribute('alt', "");
+                        div6imgpoke.style.height = "175px";
+                        div6imgpoke.style.width = "175px";
+
+                        divUser.append(div6imgpoke, pvUser);
+
+                        divs[6].append(divAdversaire, divUser);
+
+                        // Affichage des commandes
+
+                        let divAttaques = document.createElement('div');
+                        divAttaques.style.border = "2px solid black";
+                        divAttaques.style.borderRadius = "5px";
+                        divAttaques.style.display = "flex";
+                        divAttaques.style.flexWrap = "wrap";
+                        divAttaques.style.justifyContent = "center";
+                        divAttaques.style.width = "280px";
+                        divAttaques.style.padding = "2%";
+
+                        divAttaques.style.fontSize = "25px";
+
+
+                        divUser.append(divAttaques);
+
+                        for (let i = 0; i < tabAttaquesBug.length; i++) {
+                            let div6attaque = document.createElement('button');
+                            div6attaque.style.margin = "0.5%";
+                            div6attaque.style.border = "none";
+                            div6attaque.style.fontSize = "16px";
+                            div6attaque.style.backgroundColor = "transparent";
+                            div6attaque.style.fontWeight = "bold";
+
+                            divAttaques.append(div6attaque);
+                            let div6attaques = divs[6].querySelectorAll('button');
+                            switch (i) {
+                                case 0:
+                                    div6attaques[0].innerHTML = `${tabAttaquesBug[0].nom}`;
+                                    break;
+                                case 1:
+                                    div6attaques[1].innerHTML = `${tabAttaquesBug[1].nom}`;
+                                    break;
+                                case 2:
+                                    div6attaques[2].innerHTML = `${tabAttaquesBug[2].nom}`;
+                                    break;
+                                case 3:
+                                    div6attaques[3].innerHTML = `${tabAttaquesBug[3]}`;
+
+                                    //fuir
+                                    div6attaques[3].addEventListener('click', function(){
+                                        // Nouvelle page
+                                        divs[6].style.display = "none";
+                                        options[1].click();
+                                    });
+                                    break;
+                            };
+                        };
+                        let div6Faire = document.createElement('p');
+                        div6Faire.innerHTML = `Que voulez-vous faire ?`;
+                        div6Faire.style.fontSize = "18px";
+                        div6Faire.style.margin = "0%";
+                        divAttaques.prepend(div6Faire);
 
                     });
 
 
 
                 });
-            // Option fuir
-            } else if (i === 1){
+                // Option fuir
+            } else if (i === 1) {
                 options[1].innerHTML = "Fuir";
                 options[1].style.backgroundColor = "red";
                 // Option fuir
-                options[1].addEventListener('click', function(){
+                options[1].addEventListener('click', function () {
                     cadre.style.backgroundImage = "url('./public/img/textureBeige.jpeg')";
                     divs[3].style.display = "none";
                     divs[4].style.display = "block";
@@ -434,7 +772,7 @@ boutonJouer.addEventListener('click', function () {
 
                     divs[4].append(div4p1, imgFuir, div4p2);
                 });
-            } else{
+            } else {
                 console.log(`nope`)
             }
         }
@@ -456,12 +794,6 @@ let quitter; // Ptet réutiliser à l'intérieur pour option Q
 // -------------------------------------------------------
 // // Boucle permettant de relancer la partie à partir de <<Promenade>>
 
-// } 
-//                // Choix option = Fuir (Sort du jeu + déshonore la famille)
-// else {
-//     alert(`La sentence est irrevocable. Ton aventure s'arrête ici...`)
-// }
-
 // // Continuer à jouer ?
 //     continuer = prompt(`Souhaitez-vous continuer à jouer ?\nA. OUI\nAutre. NON`).toLowerCase();
 
@@ -472,24 +804,17 @@ let quitter; // Ptet réutiliser à l'intérieur pour option Q
 // FIN DU JEU
 
 
-
-
-
-
-
-
 // -------------------------------------------------------
 // -------------------------------------------------------
 // Tests
 
-//    // Style Combat
-// corps.style.backgroundImage = "none"
 
 //    // Style Winner
 // corps.style.backgroundImage = "none"
 
 //    // Style Défaite
 // corps.style.backgroundImage = "none"
+// alert(`La sentence est irrevocable. Ton aventure s'arrête ici...`)
 
 //    // Style Rejouer ?
 // corps.style.backgroundImage = "none"
