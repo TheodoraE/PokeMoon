@@ -369,13 +369,10 @@ boutonJouer.addEventListener('click', function () {
                             divPvAdv.style.display = "flex";
                             divPvAdv.style.justifyContent = "flex-end";
 
-                            let pvAdv = document.createElement('input');
-                            pvAdv.setAttribute('type', "number");
-                            pvAdv.disabled = "false";
+                            let pvAdv = document.createElement('span');
                             pvAdv.style.border = "none";
-                            pvAdv.style.textAlign = "right";
                             pvAdv.style.width = "50px";
-                            pvAdv.value = pokeRandom.pv;
+                            pvAdv.innerHTML = pokeRandom.pv;
                             pvAdv.style.fontSize = "20px";
                             pvAdv.style.fontWeight = "bold";
                             pvAdv.style.textDecoration = "underline";
@@ -398,13 +395,10 @@ boutonJouer.addEventListener('click', function () {
                             divPvUser.style.display = "flex";
                             divPvUser.style.justifyContent = "flex-end";
 
-                            let pvUser = document.createElement('input');
-                            pvUser.setAttribute('type', "number");
-                            pvUser.disabled = "false";
+                            let pvUser = document.createElement('span');
                             pvUser.style.border = "none";
-                            pvAdv.style.textAlign = "right";
                             pvUser.style.width = "50px";
-                            pvUser.value = pokeUser.pv;
+                            pvUser.innerHTML = pokeUser.pv;
                             pvUser.style.fontSize = "20px";
                             pvUser.style.fontWeight = "bold";
                             pvUser.style.textDecoration = "underline";
@@ -486,7 +480,7 @@ boutonJouer.addEventListener('click', function () {
                                         div6attaques[0].addEventListener('click', function(){
                                             if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
                                                 pokeRandom.pv -= tabAttaquesSala[0].degat;
-                                                pvAdv.innerHTML = `${pokeRandom.pv} `;
+                                                pvAdv.innerHTML = pokeRandom.pv;
                                                 if (pokeRandom.pv === 400){
                                                     pvAdv.style.color = "black";
                                                 } else if (pokeRandom.pv > 280){
@@ -518,7 +512,7 @@ boutonJouer.addEventListener('click', function () {
                                                         } else if ((attRandom == 0) || (attRandom == 2)) {
                                                             comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
                                                         };
-                                                        pvUser.innerHTML = `${pokeUser.pv} `;
+                                                        pvUser.innerHTML = pokeUser.pv;
                                                         if (pokeUser.pv == 400) {
                                                             pvUser.style.color = "black";
                                                         } else if (pokeUser.pv > 280){
@@ -528,34 +522,85 @@ boutonJouer.addEventListener('click', function () {
                                                         };
                                                     };
                                                 }, 1500);
-                                                console.log(pvUser.innerHTML);
-                                                console.log(pvAdv.innerHTML);
-
-                                                pvUser.addEventListener('change', function(e){
-                                                    if (pvUser.innerHTML === "0"){
-                                                        let div6boutonSuivant = document.createElement('button');
-                                                        div6boutonSuivant.innerHTML = "Suivant";
-                                                        div6boutonSuivant.style.padding = "3%";
-                                                        div6boutonSuivant.style.fontSize = "18px";
-                                                        div6boutonSuivant.style.backgroundColor = "yellow";
-                                                        
-                                                        console.log(e)
-                                                        divComment.append(div6boutonSuivant);
-                                                    }
-                                                });
-                                                pvAdv.addEventListener('change', function(e){
-                                                    if (pvAdv.innerHTML === "0"){
-                                                        let div6boutonSuivant = document.createElement('button');
-                                                        div6boutonSuivant.innerHTML = "Suivant";
-                                                        div6boutonSuivant.style.padding = "3%";
-                                                        div6boutonSuivant.style.fontSize = "18px";
-                                                        div6boutonSuivant.style.backgroundColor = "yellow";
-                                                        console.log(e)
-
-                                                        divComment.append(div6boutonSuivant);
-                                                    }
-                                                });
                                             };
+                                        });
+                                        // Stopper à 0
+                                        div6attaques[0].addEventListener('click', function(){
+                                            // DEFAITE
+                                            if (pvUser.innerHTML == "0"){
+                                                comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+
+                                                let div6boutonSuivant = document.createElement('button');
+                                                div6boutonSuivant.innerHTML = "Suivant";
+                                                div6boutonSuivant.style.padding = "3%";
+                                                div6boutonSuivant.style.fontSize = "18px";
+                                                div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                                divComment.append(div6boutonSuivant);
+
+                                                /// Défaite
+                                                div6boutonSuivant.addEventListener('click', function defaite(){
+                                                    divs[6].style.display = "none";
+                                                    divs[7].style.display = "block";
+                                                    
+                                                    // divs[7].style.backgroundColor = "lightblue";
+                                                    let div7Title = document.createElement('div');
+
+                                                    let div7title = document.createElement('h1');
+                                                    div7title.innerHTML = `DÉFAITE...`
+
+                                                    let div7title2 = document.createElement('h2');
+                                                    div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                    let gifNo = document.createElement('img');
+                                                    gifNo.setAttribute('src', './public/img/torche.gif');
+                                                    
+
+                                                    div7Title.append(div7title, div7title2);
+
+                                                    divs[7].append(div7Title, gifNo);
+                                                })
+                                                
+                                            } else if (pvAdv.innerHTML == "0"){
+                                                // VICTOIRE
+                                                comment.innerHTML = `${pokeRandom.nom} adverse a été battu ! <br> Passez à l'écran suivant`;
+
+                                                let div6boutonSuivant = document.createElement('button');
+                                                div6boutonSuivant.innerHTML = "Suivant";
+                                                div6boutonSuivant.style.padding = "3%";
+                                                div6boutonSuivant.style.fontSize = "18px";
+                                                div6boutonSuivant.style.backgroundColor = "yellow";
+                                                
+                                                divComment.append(div6boutonSuivant);
+
+                                                // Victoire
+                                                div6boutonSuivant.addEventListener('click', function victoire(){
+                                                    divs[6].style.display = "none";
+                                                    divs[7].style.display = "block";
+
+                                                    // divs[7].style.backgroundColor = "lightblue";
+                                                    let div7Title = document.createElement('div');
+
+                                                    let div7title = document.createElement('h1');
+                                                    div7title.innerHTML = `VICTOIRE !!!`
+
+                                                    let div7title2 = document.createElement('h2');
+                                                    div7title2.innerHTML = `Bravo, vous avez gagné !`;
+
+                                                    let gifYes = document.createElement('img');
+                                                    gifYes.setAttribute('src', './public/img/won.gif');
+
+                                                    let replay = document.createElement('button');
+                                                    replay.innerHTML = `Wanna replay ?`
+                                                    replay.style.padding = "1% 2%";
+                                                    replay.style.margin = "1%";
+
+                                                    div7Title.append(div7title, div7title2);
+
+                                                    divs[7].append(div7Title, gifYes, replay);
+                                                })
+                                            };
+                                            
                                         });
                                         break;
                                     case 1:
