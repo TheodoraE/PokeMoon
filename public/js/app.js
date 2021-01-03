@@ -539,15 +539,14 @@ boutonJouer.addEventListener('click', function () {
                                                 divComment.append(div6boutonSuivant);
 
                                                 /// Défaite
-                                                div6boutonSuivant.addEventListener('click', function defaite(){
+                                                div6boutonSuivant.addEventListener('click', function (){
                                                     divs[6].style.display = "none";
                                                     divs[7].style.display = "block";
                                                     
-                                                    // divs[7].style.backgroundColor = "lightblue";
                                                     let div7Title = document.createElement('div');
 
                                                     let div7title = document.createElement('h1');
-                                                    div7title.innerHTML = `DÉFAITE...`
+                                                    div7title.innerHTML = `DEFAITE...`
 
                                                     let div7title2 = document.createElement('h2');
                                                     div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
@@ -555,12 +554,19 @@ boutonJouer.addEventListener('click', function () {
                                                     let gifNo = document.createElement('img');
                                                     gifNo.setAttribute('src', './public/img/torche.gif');
                                                     
+                                                    let replay = document.createElement('button');
+                                                    replay.innerHTML = `Wanna replay ?`
+                                                    replay.style.padding = "1% 2%";
+                                                    replay.style.margin = "1%";
+
+                                                    replay.addEventListener('click', function(){
+                                                        location.reload();
+                                                    });
 
                                                     div7Title.append(div7title, div7title2);
 
-                                                    divs[7].append(div7Title, gifNo);
-                                                })
-                                                
+                                                    divs[7].append(div7Title, gifNo, br, replay);
+                                                });
                                             } else if (pvAdv.innerHTML == "0"){
                                                 // VICTOIRE
                                                 comment.innerHTML = `${pokeRandom.nom} adverse a été battu ! <br> Passez à l'écran suivant`;
@@ -574,11 +580,10 @@ boutonJouer.addEventListener('click', function () {
                                                 divComment.append(div6boutonSuivant);
 
                                                 // Victoire
-                                                div6boutonSuivant.addEventListener('click', function victoire(){
+                                                div6boutonSuivant.addEventListener('click', function (){
                                                     divs[6].style.display = "none";
                                                     divs[7].style.display = "block";
 
-                                                    // divs[7].style.backgroundColor = "lightblue";
                                                     let div7Title = document.createElement('div');
 
                                                     let div7title = document.createElement('h1');
@@ -595,24 +600,27 @@ boutonJouer.addEventListener('click', function () {
                                                     replay.style.padding = "1% 2%";
                                                     replay.style.margin = "1%";
 
+                                                    replay.addEventListener('click', function(){
+                                                        location.reload();
+                                                    });
+
                                                     div7Title.append(div7title, div7title2);
 
-                                                    divs[7].append(div7Title, gifYes, replay);
+                                                    divs[7].append(div7Title, gifYes, br, replay);
                                                 })
                                             };
-                                            
                                         });
                                         break;
                                     case 1:
                                         div6attaques[1].innerHTML = `${tabAttaquesSala[1].nom}`;
                                         // Rugissement
                                         div6attaques[1].addEventListener('click', function(){
-                                            if (pokeRandom.pv > 0){
+                                            if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)){
                                                 pokeRandom.pv -= tabAttaquesSala[1].degat;
-                                                pvAdv.innerHTML = `${pokeRandom.pv} `;
+                                                pvAdv.innerHTML = pokeRandom.pv;
                                                 if (pokeRandom.pv === 400){
                                                     pvAdv.style.color = "black";
-                                                } else if (pokeRandom.pv > 120){
+                                                } else if (pokeRandom.pv > 280){
                                                     pvAdv.style.color = "blue";
                                                 } else if (pokeRandom.pv <= 120) {
                                                     pvAdv.style.color = "red";
@@ -634,22 +642,67 @@ boutonJouer.addEventListener('click', function () {
                                                 }
                                 
                                                 setTimeout(() => {
-                                                    pokeUser.pv -= attaqueRandom.degat;
-                                                    if (attRandom == 1 ){
-                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
-                                                    } else if ((attRandom == 0) || (attRandom == 2)) {
-                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
-                                                    };
-                                                    pvUser.innerHTML = `${pokeUser.pv} `;
-                                                    if (pokeUser.pv == 400) {
-                                                        pvUser.style.color = "black";
-                                                    } else if (pokeUser.pv > 120){
-                                                        pvUser.style.color = "blue";
-                                                    } else if (pokeUser.pv <= 120) {
-                                                        pvUser.style.color = "red";
-                                                    };
+                                                    if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                                        pokeUser.pv -= attaqueRandom.degat;
+                                                        if (attRandom == 1 ){
+                                                            comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
+                                                        } else if ((attRandom == 0) || (attRandom == 2)) {
+                                                            comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
+                                                        };
+                                                        pvUser.innerHTML = pokeUser.pv;
+                                                        if (pokeUser.pv == 400) {
+                                                            pvUser.style.color = "black";
+                                                        } else if (pokeUser.pv > 280){
+                                                            pvUser.style.color = "blue";
+                                                        } else if (pokeUser.pv <= 120) {
+                                                            pvUser.style.color = "red";
+                                                        };
+
+                                                        // Stopper à 0
+                                                        if (pvUser.innerHTML == "0") {
+                                                            console.log(`fonctionne`)
+                                                            comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+            
+                                                            let div6boutonSuivant = document.createElement('button');
+                                                            div6boutonSuivant.innerHTML = "Suivant";
+                                                            div6boutonSuivant.style.padding = "3%";
+                                                            div6boutonSuivant.style.fontSize = "18px";
+                                                            div6boutonSuivant.style.backgroundColor = "yellow";
+            
+                                                            divComment.append(div6boutonSuivant);
+                                                            /// Défaite
+                                                            div6boutonSuivant.addEventListener('click', function (){
+                                                                divs[6].style.display = "none";
+                                                                divs[7].style.display = "block";
+                                                                
+                                                                let div7Title = document.createElement('div');
+            
+                                                                let div7title = document.createElement('h1');
+                                                                div7title.innerHTML = `DEFAITE...`
+            
+                                                                let div7title2 = document.createElement('h2');
+                                                                div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+            
+                                                                let gifNo = document.createElement('img');
+                                                                gifNo.setAttribute('src', './public/img/torche.gif');
+                                                                
+                                                                let replay = document.createElement('button');
+                                                                replay.innerHTML = `Wanna replay ?`
+                                                                replay.style.padding = "1% 2%";
+                                                                replay.style.margin = "1%";
+            
+                                                                replay.addEventListener('click', function(){
+                                                                    location.reload();
+                                                                });
+            
+                                                                div7Title.append(div7title, div7title2);
+            
+                                                                divs[7].append(div7Title, gifNo, br, replay);
+                                                            });
+                                                        };
+                                                    } 
                                                 }, 1500);
-                                            }                                  
+                                            }
                                         });
                                         break;
                                     case 2:
