@@ -2001,6 +2001,7 @@ boutonJouer.addEventListener('click', function () {
                     // Texte
                     let div4p1 = document.createElement('p');
                     div4p1.innerHTML = `Tsk tsk tsk... Je suis très déçue jeune Padawan`;
+                    div4p1.style.margin = "0% 0% 2% 0%"
                     div4p1.style.fontSize = "30px";
                     div4p1.style.fontWeight = "bold";
                     // Image
@@ -2012,8 +2013,20 @@ boutonJouer.addEventListener('click', function () {
                     let div4p2 = document.createElement('p');
                     div4p2.innerHTML = "Le jeu s'arrête ici";
                     div4p2.style.textAlign = "end";
+                    div4p2.style.margin = "0%";
 
-                    divs[4].append(div4p1, imgFuir, div4p2);
+                    let replay = document.createElement('button');
+                    replay.innerHTML = `Retenter ma chance`;
+                    replay.style.fontSize = "14px";
+                    replay.style.fontWeight = "bold";
+                    replay.style.padding = "1% 2%";
+                    replay.style.margin = "1%";
+
+                    replay.addEventListener('click', function () {
+                        location.reload();
+                    });
+
+                    divs[4].append(div4p1, imgFuir, div4p2, replay);
                 });
             } else {
                 console.log(`nope`)
