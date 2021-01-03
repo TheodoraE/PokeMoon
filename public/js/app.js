@@ -36,7 +36,7 @@ let section = document.createElement('section');
 section.setAttribute('id', "cadre");
 section.style.textAlign = "center"
 // Div de jeu
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 9; i++) {
     let div = document.createElement('div');
     div.style.height = "100%"
     section.append(div);
@@ -336,442 +336,553 @@ boutonJouer.addEventListener('click', function () {
                     // Salahess
                     choixPokes[0].addEventListener('click', function () {
                         pokeUser = salahess;
-                        
-                            divs[5].style.display = "none";
-                            divs[6].style.display = "block";
 
-                            // Affichage de l'adversaire
-                            let divAdversaire = document.createElement('div');
-                            divAdversaire.style.height = "250px";
-                            divAdversaire.style.display = "flex";
-                            divAdversaire.style.flexDirection = "column";
+                        divs[5].style.display = "none";
+                        divs[6].style.display = "block";
 
-                            let div6imgadv = document.createElement('img');
-                            switch (pokeRandom) {
-                                case salahess2:
-                                    div6imgadv.setAttribute('src', './public/img/Salameche2.png');
-                                    break;
-                                case carapils2:
-                                    div6imgadv.setAttribute('src', './public/img/Carapuce2.png');
-                                    break;
-                                case bugbizarre2:
-                                    div6imgadv.setAttribute('src', './public/img/Bulbizarre2.png');
-                                    break;
-                            }
-                            div6imgadv.setAttribute('alt', "");
-                            div6imgadv.style.height = "175px";
-                            div6imgadv.style.width = "175px";
-                            div6imgadv.style.display = "flex";
-                            div6imgadv.style.placeSelf = "flex-end";
+                        // Affichage de l'adversaire
+                        let divAdversaire = document.createElement('div');
+                        divAdversaire.style.height = "250px";
+                        divAdversaire.style.display = "flex";
+                        divAdversaire.style.flexDirection = "column";
 
-                            // Niveau de vie
-                            let divPvAdv = document.createElement('div');
-                            divPvAdv.style.display = "flex";
-                            divPvAdv.style.justifyContent = "flex-end";
+                        let div6imgadv = document.createElement('img');
+                        switch (pokeRandom) {
+                            case salahess2:
+                                div6imgadv.setAttribute('src', './public/img/Salameche2.png');
+                                break;
+                            case carapils2:
+                                div6imgadv.setAttribute('src', './public/img/Carapuce2.png');
+                                break;
+                            case bugbizarre2:
+                                div6imgadv.setAttribute('src', './public/img/Bulbizarre2.png');
+                                break;
+                        }
+                        div6imgadv.setAttribute('alt', "");
+                        div6imgadv.style.height = "175px";
+                        div6imgadv.style.width = "175px";
+                        div6imgadv.style.display = "flex";
+                        div6imgadv.style.placeSelf = "flex-end";
 
-                            let pvAdv = document.createElement('span');
-                            pvAdv.style.border = "none";
-                            pvAdv.style.width = "50px";
-                            pvAdv.innerHTML = pokeRandom.pv;
-                            pvAdv.style.fontSize = "20px";
-                            pvAdv.style.fontWeight = "bold";
-                            pvAdv.style.textDecoration = "underline";
-                            let pvAdv2 = document.createElement('span');
-                            pvAdv2.innerHTML = ` /400 pv`;
-                            pvAdv2.style.fontSize = "20px";
-                            pvAdv2.style.fontWeight = "bold";
-                            pvAdv2.style.textDecoration = "underline";
-                            pvAdv2.style.margin = "0% 2% 0% 0%";
+                        // Niveau de vie
+                        let divPvAdv = document.createElement('div');
+                        divPvAdv.style.display = "flex";
+                        divPvAdv.style.justifyContent = "flex-end";
 
-                            divPvAdv.append(pvAdv, pvAdv2);
+                        let pvAdv = document.createElement('span');
+                        pvAdv.style.border = "none";
+                        pvAdv.style.width = "50px";
+                        pvAdv.innerHTML = pokeRandom.pv;
+                        pvAdv.style.fontSize = "20px";
+                        pvAdv.style.fontWeight = "bold";
+                        pvAdv.style.textDecoration = "underline";
+                        let pvAdv2 = document.createElement('span');
+                        pvAdv2.innerHTML = ` /400 pv`;
+                        pvAdv2.style.fontSize = "20px";
+                        pvAdv2.style.fontWeight = "bold";
+                        pvAdv2.style.textDecoration = "underline";
+                        pvAdv2.style.margin = "0% 2% 0% 0%";
 
-                            divAdversaire.append(div6imgadv, divPvAdv);
+                        divPvAdv.append(pvAdv, pvAdv2);
 
-                            // Affichage de mon Pokemon
-                            let divUser = document.createElement('div');
-                            divUser.style.display = "flex";
+                        divAdversaire.append(div6imgadv, divPvAdv);
 
-                            let divPvUser = document.createElement('div');
-                            divPvUser.style.display = "flex";
-                            divPvUser.style.justifyContent = "flex-end";
+                        // Affichage de mon Pokemon
+                        let divUser = document.createElement('div');
+                        divUser.style.display = "flex";
 
-                            let pvUser = document.createElement('span');
-                            pvUser.style.border = "none";
-                            pvUser.style.width = "50px";
-                            pvUser.innerHTML = pokeUser.pv;
-                            pvUser.style.fontSize = "20px";
-                            pvUser.style.fontWeight = "bold";
-                            pvUser.style.textDecoration = "underline";
-                            pvUser.style.marginBottom = "5%";
-                            let pvUser2 = document.createElement('span');
-                            pvUser2.innerHTML = ` /400 pv`;
-                            pvUser2.style.fontSize = "20px";
-                            pvUser2.style.fontWeight = "bold";
-                            pvUser2.style.textDecoration = "underline";
-                            pvUser2.style.margin = "0% 2% 0% 0%";
-                            pvUser2.style.marginBottom = "5%";
+                        let divPvUser = document.createElement('div');
+                        divPvUser.style.display = "flex";
+                        divPvUser.style.justifyContent = "flex-end";
 
-                            divPvUser.append(pvUser, pvUser2);
+                        let pvUser = document.createElement('span');
+                        pvUser.style.border = "none";
+                        pvUser.style.width = "50px";
+                        pvUser.innerHTML = pokeUser.pv;
+                        pvUser.style.fontSize = "20px";
+                        pvUser.style.fontWeight = "bold";
+                        pvUser.style.textDecoration = "underline";
+                        pvUser.style.marginBottom = "5%";
+                        let pvUser2 = document.createElement('span');
+                        pvUser2.innerHTML = ` /400 pv`;
+                        pvUser2.style.fontSize = "20px";
+                        pvUser2.style.fontWeight = "bold";
+                        pvUser2.style.textDecoration = "underline";
+                        pvUser2.style.margin = "0% 2% 0% 0%";
+                        pvUser2.style.marginBottom = "5%";
 
-                            let div6imgpoke = document.createElement('img');
-                            switch (pokeUser) {
-                                case salahess:
-                                    div6imgpoke.setAttribute('src', './public/img/Salameche2.png');
-                                    break;
-                                case carapils:
-                                    div6imgpoke.setAttribute('src', './public/img/Carapuce2.png');
-                                    break;
-                                case bugbizarre:
-                                    div6imgpoke.setAttribute('src', './public/img/Bulbizarre2.png');
-                                    break;
-                            };
-                            div6imgpoke.setAttribute('alt', "");
-                            div6imgpoke.style.height = "175px";
-                            div6imgpoke.style.width = "175px";
-                            
-                            // Affichage des commandes
-                            let divAttaques = document.createElement('div');
-                            divAttaques.style.border = "2px solid black";
-                            divAttaques.style.borderRadius = "5px";
-                            divAttaques.style.display = "flex";
-                            divAttaques.style.flexWrap = "wrap";
-                            divAttaques.style.justifyContent = "center";
-                            divAttaques.style.padding = "2%";
-                            
-                            divAttaques.style.fontSize = "25px";
+                        divPvUser.append(pvUser, pvUser2);
 
-                            let divComment = document.createElement('div');
-                            divComment.style.width = "80%";
-                            divComment.style.height = "350px";
-                            divComment.style.display = "flex";
-                            divComment.style.alignItems = "center";
-                            divComment.style.justifyContent = "flex-end";
-                            //Phrase de commentaire
-                            let comment = document.createElement('p');
-                            comment.style.fontFamily = "arial";
-                            comment.style.fontSize = "18px";
-                            comment.style.fontWeight = "bold"
-                            comment.style.margin = "8%";
-                            comment.innerHTML = ``;
-                            divComment.append(comment);
+                        let div6imgpoke = document.createElement('img');
+                        switch (pokeUser) {
+                            case salahess:
+                                div6imgpoke.setAttribute('src', './public/img/Salameche2.png');
+                                break;
+                            case carapils:
+                                div6imgpoke.setAttribute('src', './public/img/Carapuce2.png');
+                                break;
+                            case bugbizarre:
+                                div6imgpoke.setAttribute('src', './public/img/Bulbizarre2.png');
+                                break;
+                        };
+                        div6imgpoke.setAttribute('alt', "");
+                        div6imgpoke.style.height = "175px";
+                        div6imgpoke.style.width = "175px";
 
-                            let divTemp = document.createElement('div');
-                            divTemp.style.width = "20%";
-                            divTemp.append(div6imgpoke, divPvUser, divAttaques);
+                        // Affichage des commandes
+                        let divAttaques = document.createElement('div');
+                        divAttaques.style.border = "2px solid black";
+                        divAttaques.style.borderRadius = "5px";
+                        divAttaques.style.display = "flex";
+                        divAttaques.style.flexWrap = "wrap";
+                        divAttaques.style.justifyContent = "center";
+                        divAttaques.style.padding = "2%";
 
-                            divUser.append(divTemp, divComment);
-                            divs[6].append(divAdversaire, divUser);
+                        divAttaques.style.fontSize = "25px";
 
-                            for (let i = 0; i < tabAttaquesSala.length; i++) {
-                                let div6attaque = document.createElement('button');
-                                div6attaque.style.margin = "0.5%";
-                                div6attaque.style.border = "none";
-                                div6attaque.style.fontSize = "16px";
-                                div6attaque.style.backgroundColor = "transparent";
-                                div6attaque.style.fontWeight = "bold";
+                        let divComment = document.createElement('div');
+                        divComment.style.width = "80%";
+                        divComment.style.height = "350px";
+                        divComment.style.display = "flex";
+                        divComment.style.alignItems = "center";
+                        divComment.style.justifyContent = "flex-end";
+                        //Phrase de commentaire
+                        let comment = document.createElement('p');
+                        comment.style.fontFamily = "arial";
+                        comment.style.fontSize = "18px";
+                        comment.style.fontWeight = "bold"
+                        comment.style.margin = "8%";
+                        comment.innerHTML = ``;
+                        divComment.append(comment);
 
-                                divAttaques.append(div6attaque);
-                                let div6attaques = divs[6].querySelectorAll('button');
+                        let divTemp = document.createElement('div');
+                        divTemp.style.width = "20%";
+                        divTemp.append(div6imgpoke, divPvUser, divAttaques);
 
-                                switch (i) {
-                                    case 0:
-                                        div6attaques[0].innerHTML = `${tabAttaquesSala[0].nom}`;
-                                        // Griffe                                   
-                                        div6attaques[0].addEventListener('click', function(){
-                                            if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
-                                                pokeRandom.pv -= tabAttaquesSala[0].degat;
-                                                pvAdv.innerHTML = pokeRandom.pv;
-                                                if (pokeRandom.pv === 400){
-                                                    pvAdv.style.color = "black";
-                                                } else if (pokeRandom.pv > 280){
-                                                    pvAdv.style.color = "blue";
-                                                } else if (pokeRandom.pv <= 120) {
-                                                    pvAdv.style.color = "red";
-                                                };
-                                                comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesSala[0].nom} " C'est très efficace ! <br> ${pokeRandom.nom} adverse a perdu ${tabAttaquesSala[0].degat} points de vie`;
-                                                // attaque Adversaire
-                                                if (pokeRandom == salahess2) {
-                                                        // Random
-                                                    var attRandom = Math.floor(Math.random()* (tabAttaquesSala.length-1));
-                                                    var attaqueRandom = tabAttaquesSala[attRandom];
-                                                } else if (pokeRandom == carapils2) {
-                                                        // Random
-                                                    var attRandom = Math.floor(Math.random()* (tabAttaquesCara.length-1));
-                                                    var attaqueRandom = tabAttaquesCara[attRandom];
-                                                } else if (pokeRandom == bugbizarre2) {
-                                                        // Random
-                                                    var attRandom = Math.floor(Math.random()* (tabAttaquesBug.length-1));
-                                                    var attaqueRandom = tabAttaquesBug[attRandom];
-                                                }
-                                
-                                                setTimeout(() => {
-                                                    if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
-                                                        pokeUser.pv -= attaqueRandom.degat;
-                                                        if (attRandom == 1 ){
-                                                            comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
-                                                        } else if ((attRandom == 0) || (attRandom == 2)) {
-                                                            comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
-                                                        };
-                                                        pvUser.innerHTML = pokeUser.pv;
-                                                        if (pokeUser.pv == 400) {
-                                                            pvUser.style.color = "black";
-                                                        } else if (pokeUser.pv > 280){
-                                                            pvUser.style.color = "blue";
-                                                        } else if (pokeUser.pv <= 120) {
-                                                            pvUser.style.color = "red";
-                                                        };
-                                                    };
-                                                }, 1500);
+                        divUser.append(divTemp, divComment);
+                        divs[6].append(divAdversaire, divUser);
+
+                        for (let i = 0; i < tabAttaquesSala.length; i++) {
+                            let div6attaque = document.createElement('button');
+                            div6attaque.style.margin = "0.5%";
+                            div6attaque.style.border = "none";
+                            div6attaque.style.fontSize = "16px";
+                            div6attaque.style.backgroundColor = "transparent";
+                            div6attaque.style.fontWeight = "bold";
+
+                            divAttaques.append(div6attaque);
+                            let div6attaques = divs[6].querySelectorAll('button');
+
+                            switch (i) {
+                                case 0:
+                                    div6attaques[0].innerHTML = `${tabAttaquesSala[0].nom}`;
+                                    // Griffe                                   
+                                    div6attaques[0].addEventListener('click', function () {
+                                        if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                            pokeRandom.pv -= tabAttaquesSala[0].degat;
+                                            pvAdv.innerHTML = pokeRandom.pv;
+                                            if (pokeRandom.pv === 400) {
+                                                pvAdv.style.color = "black";
+                                            } else if (pokeRandom.pv > 280) {
+                                                pvAdv.style.color = "blue";
+                                            } else if (pokeRandom.pv <= 120) {
+                                                pvAdv.style.color = "red";
                                             };
-                                        });
-                                        // Stopper à 0
-                                        div6attaques[0].addEventListener('click', function(){
-                                            // DEFAITE
-                                            if (pvUser.innerHTML == "0"){
-                                                comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
-
-                                                let div6boutonSuivant = document.createElement('button');
-                                                div6boutonSuivant.innerHTML = "Suivant";
-                                                div6boutonSuivant.style.padding = "3%";
-                                                div6boutonSuivant.style.fontSize = "18px";
-                                                div6boutonSuivant.style.backgroundColor = "yellow";
-
-                                                divComment.append(div6boutonSuivant);
-
-                                                /// Défaite
-                                                div6boutonSuivant.addEventListener('click', function (){
-                                                    divs[6].style.display = "none";
-                                                    divs[7].style.display = "block";
-                                                    
-                                                    let div7Title = document.createElement('div');
-
-                                                    let div7title = document.createElement('h1');
-                                                    div7title.innerHTML = `DEFAITE...`
-
-                                                    let div7title2 = document.createElement('h2');
-                                                    div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
-
-                                                    let gifNo = document.createElement('img');
-                                                    gifNo.setAttribute('src', './public/img/torche.gif');
-                                                    
-                                                    let replay = document.createElement('button');
-                                                    replay.innerHTML = `Wanna replay ?`
-                                                    replay.style.padding = "1% 2%";
-                                                    replay.style.margin = "1%";
-
-                                                    replay.addEventListener('click', function(){
-                                                        location.reload();
-                                                    });
-
-                                                    div7Title.append(div7title, div7title2);
-
-                                                    divs[7].append(div7Title, gifNo, br, replay);
-                                                });
-                                            } else if (pvAdv.innerHTML == "0"){
-                                                // VICTOIRE
-                                                comment.innerHTML = `${pokeRandom.nom} adverse a été battu ! <br> Passez à l'écran suivant`;
-
-                                                let div6boutonSuivant = document.createElement('button');
-                                                div6boutonSuivant.innerHTML = "Suivant";
-                                                div6boutonSuivant.style.padding = "3%";
-                                                div6boutonSuivant.style.fontSize = "18px";
-                                                div6boutonSuivant.style.backgroundColor = "yellow";
-                                                
-                                                divComment.append(div6boutonSuivant);
-
-                                                // Victoire
-                                                div6boutonSuivant.addEventListener('click', function (){
-                                                    divs[6].style.display = "none";
-                                                    divs[7].style.display = "block";
-
-                                                    let div7Title = document.createElement('div');
-
-                                                    let div7title = document.createElement('h1');
-                                                    div7title.innerHTML = `VICTOIRE !!!`
-
-                                                    let div7title2 = document.createElement('h2');
-                                                    div7title2.innerHTML = `Bravo, vous avez gagné !`;
-
-                                                    let gifYes = document.createElement('img');
-                                                    gifYes.setAttribute('src', './public/img/won.gif');
-
-                                                    let replay = document.createElement('button');
-                                                    replay.innerHTML = `Wanna replay ?`
-                                                    replay.style.padding = "1% 2%";
-                                                    replay.style.margin = "1%";
-
-                                                    replay.addEventListener('click', function(){
-                                                        location.reload();
-                                                    });
-
-                                                    div7Title.append(div7title, div7title2);
-
-                                                    divs[7].append(div7Title, gifYes, br, replay);
-                                                })
-                                            };
-                                        });
-                                        break;
-                                    case 1:
-                                        div6attaques[1].innerHTML = `${tabAttaquesSala[1].nom}`;
-                                        // Rugissement
-                                        div6attaques[1].addEventListener('click', function(){
-                                            if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)){
-                                                pokeRandom.pv -= tabAttaquesSala[1].degat;
-                                                pvAdv.innerHTML = pokeRandom.pv;
-                                                if (pokeRandom.pv === 400){
-                                                    pvAdv.style.color = "black";
-                                                } else if (pokeRandom.pv > 280){
-                                                    pvAdv.style.color = "blue";
-                                                } else if (pokeRandom.pv <= 120) {
-                                                    pvAdv.style.color = "red";
-                                                };
-                                                comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesSala[1].nom} " Ce n'est pas efficace... <br> ${pokeRandom.nom} adverse est juste effrayé`;
-                                                // attaque Adversaire
-                                                if (pokeRandom == salahess2) {
-                                                        // Random
-                                                    var attRandom = Math.floor(Math.random()* (tabAttaquesSala.length-1));
-                                                    var attaqueRandom = tabAttaquesSala[attRandom];
-                                                } else if (pokeRandom == carapils2) {
-                                                        // Random
-                                                    var attRandom = Math.floor(Math.random()* (tabAttaquesCara.length-1));
-                                                    var attaqueRandom = tabAttaquesCara[attRandom];
-                                                } else if (pokeRandom == bugbizarre2) {
-                                                        // Random
-                                                    var attRandom = Math.floor(Math.random()* (tabAttaquesBug.length-1));
-                                                    var attaqueRandom = tabAttaquesBug[attRandom];
-                                                }
-                                
-                                                setTimeout(() => {
-                                                    if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
-                                                        pokeUser.pv -= attaqueRandom.degat;
-                                                        if (attRandom == 1 ){
-                                                            comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
-                                                        } else if ((attRandom == 0) || (attRandom == 2)) {
-                                                            comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
-                                                        };
-                                                        pvUser.innerHTML = pokeUser.pv;
-                                                        if (pokeUser.pv == 400) {
-                                                            pvUser.style.color = "black";
-                                                        } else if (pokeUser.pv > 280){
-                                                            pvUser.style.color = "blue";
-                                                        } else if (pokeUser.pv <= 120) {
-                                                            pvUser.style.color = "red";
-                                                        };
-
-                                                        // Stopper à 0
-                                                        if (pvUser.innerHTML == "0") {
-                                                            console.log(`fonctionne`)
-                                                            comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
-            
-                                                            let div6boutonSuivant = document.createElement('button');
-                                                            div6boutonSuivant.innerHTML = "Suivant";
-                                                            div6boutonSuivant.style.padding = "3%";
-                                                            div6boutonSuivant.style.fontSize = "18px";
-                                                            div6boutonSuivant.style.backgroundColor = "yellow";
-            
-                                                            divComment.append(div6boutonSuivant);
-                                                            /// Défaite
-                                                            div6boutonSuivant.addEventListener('click', function (){
-                                                                divs[6].style.display = "none";
-                                                                divs[7].style.display = "block";
-                                                                
-                                                                let div7Title = document.createElement('div');
-            
-                                                                let div7title = document.createElement('h1');
-                                                                div7title.innerHTML = `DEFAITE...`
-            
-                                                                let div7title2 = document.createElement('h2');
-                                                                div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
-            
-                                                                let gifNo = document.createElement('img');
-                                                                gifNo.setAttribute('src', './public/img/torche.gif');
-                                                                
-                                                                let replay = document.createElement('button');
-                                                                replay.innerHTML = `Wanna replay ?`
-                                                                replay.style.padding = "1% 2%";
-                                                                replay.style.margin = "1%";
-            
-                                                                replay.addEventListener('click', function(){
-                                                                    location.reload();
-                                                                });
-            
-                                                                div7Title.append(div7title, div7title2);
-            
-                                                                divs[7].append(div7Title, gifNo, br, replay);
-                                                            });
-                                                        };
-                                                    } 
-                                                }, 1500);
+                                            comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesSala[0].nom} " C'est très efficace ! <br> ${pokeRandom.nom} adverse a perdu ${tabAttaquesSala[0].degat} points de vie`;
+                                            // attaque Adversaire
+                                            if (pokeRandom == salahess2) {
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesSala.length - 1));
+                                                var attaqueRandom = tabAttaquesSala[attRandom];
+                                            } else if (pokeRandom == carapils2) {
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesCara.length - 1));
+                                                var attaqueRandom = tabAttaquesCara[attRandom];
+                                            } else if (pokeRandom == bugbizarre2) {
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesBug.length - 1));
+                                                var attaqueRandom = tabAttaquesBug[attRandom];
                                             }
-                                        });
-                                        break;
-                                    case 2:
-                                        div6attaques[2].innerHTML = `${tabAttaquesSala[2].nom}`;
-                                        // Flammèche
-                                        div6attaques[2].addEventListener('click', function(){
-                                            if (pokeRandom.pv > 0){
-                                                pokeRandom.pv -= tabAttaquesSala[2].degat;
-                                                pvAdv.innerHTML = `${pokeRandom.pv} `;
-                                                if (pokeRandom.pv === 400){
-                                                    pvAdv.style.color = "black";
-                                                } else if (pokeRandom.pv > 120){
-                                                    pvAdv.style.color = "blue";
-                                                } else if (pokeRandom.pv <= 120) {
-                                                    pvAdv.style.color = "red";
-                                                };
-                                                comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesSala[2].nom} " C'est très efficace ! <br> ${pokeRandom.nom} adverse a perdu ${tabAttaquesSala[2].degat} points de vie`;
-                                                // attaque Adversaire
-                                                if (pokeRandom == salahess2) {
-                                                        // Random
-                                                    var attRandom = Math.floor(Math.random()* (tabAttaquesSala.length-1));
-                                                    var attaqueRandom = tabAttaquesSala[attRandom];
-                                                } else if (pokeRandom == carapils2) {
-                                                        // Random
-                                                    var attRandom = Math.floor(Math.random()* (tabAttaquesCara.length-1));
-                                                    var attaqueRandom = tabAttaquesCara[attRandom];
-                                                } else if (pokeRandom == bugbizarre2) {
-                                                        // Random
-                                                    var attRandom = Math.floor(Math.random()* (tabAttaquesBug.length-1));
-                                                    var attaqueRandom = tabAttaquesBug[attRandom];
-                                                }
-                                
-                                                setTimeout(() => {
+
+                                            setTimeout(() => {
+                                                if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
                                                     pokeUser.pv -= attaqueRandom.degat;
-                                                    if (attRandom == 1 ){
+                                                    if (attRandom == 1) {
                                                         comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
                                                     } else if ((attRandom == 0) || (attRandom == 2)) {
                                                         comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
                                                     };
-                                                    pvUser.innerHTML = `${pokeUser.pv} `;
+                                                    pvUser.innerHTML = pokeUser.pv;
                                                     if (pokeUser.pv == 400) {
                                                         pvUser.style.color = "black";
-                                                    } else if (pokeUser.pv > 120){
+                                                    } else if (pokeUser.pv > 280) {
                                                         pvUser.style.color = "blue";
                                                     } else if (pokeUser.pv <= 120) {
                                                         pvUser.style.color = "red";
                                                     };
-                                                }, 1500);
-                                            } 
-                                        });
-                                        break;
-                                    case 3:
-                                        div6attaques[3].innerHTML = `${tabAttaquesSala[3]}`;
-                                        //fuir
-                                        div6attaques[3].addEventListener('click', function(){
-                                            // Nouvelle page
-                                            divs[6].style.display = "none";
-                                            options[1].click();
-                                        });
-                                        break;
-                                };
+                                                };
+                                            }, 1500);
+                                        };
+                                    });
+                                    // Stopper à 0
+                                    div6attaques[0].addEventListener('click', function () {
+                                        // DEFAITE
+                                        if (pvUser.innerHTML == "0") {
+                                            comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
 
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
 
+                                            divComment.append(div6boutonSuivant);
+
+                                            /// Défaite
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `DEFAITE...`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                let gifNo = document.createElement('img');
+                                                gifNo.setAttribute('src', './public/img/torche.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifNo, br, replay, avis);
+                                            });
+                                        } else if (pvAdv.innerHTML == "0") {
+                                            // VICTOIRE
+                                            comment.innerHTML = `${pokeRandom.nom} adverse a été battu ! <br> Passez à l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            // Victoire
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `VICTOIRE !!!`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `Bravo, vous avez gagné !`;
+
+                                                let gifYes = document.createElement('img');
+                                                gifYes.setAttribute('src', './public/img/won.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifYes, br, replay, avis);
+                                            })
+                                        };
+                                    });
+                                    break;
+                                case 1:
+                                    div6attaques[1].innerHTML = `${tabAttaquesSala[1].nom}`;
+                                    // Rugissement
+                                    div6attaques[1].addEventListener('click', function () {
+                                        if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                            pokeRandom.pv -= tabAttaquesSala[1].degat;
+                                            pvAdv.innerHTML = pokeRandom.pv;
+                                            if (pokeRandom.pv === 400) {
+                                                pvAdv.style.color = "black";
+                                            } else if (pokeRandom.pv > 280) {
+                                                pvAdv.style.color = "blue";
+                                            } else if (pokeRandom.pv <= 120) {
+                                                pvAdv.style.color = "red";
+                                            };
+                                            comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesSala[1].nom} " Ce n'est pas efficace... <br> ${pokeRandom.nom} adverse est juste effrayé`;
+                                            // attaque Adversaire
+                                            if (pokeRandom == salahess2) {
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesSala.length - 1));
+                                                var attaqueRandom = tabAttaquesSala[attRandom];
+                                            } else if (pokeRandom == carapils2) {
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesCara.length - 1));
+                                                var attaqueRandom = tabAttaquesCara[attRandom];
+                                            } else if (pokeRandom == bugbizarre2) {
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesBug.length - 1));
+                                                var attaqueRandom = tabAttaquesBug[attRandom];
+                                            }
+
+                                            setTimeout(() => {
+                                                if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                                    pokeUser.pv -= attaqueRandom.degat;
+                                                    if (attRandom == 1) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
+                                                    } else if ((attRandom == 0) || (attRandom == 2)) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
+                                                    };
+                                                    pvUser.innerHTML = pokeUser.pv;
+                                                    if (pokeUser.pv == 400) {
+                                                        pvUser.style.color = "black";
+                                                    } else if (pokeUser.pv > 280) {
+                                                        pvUser.style.color = "blue";
+                                                    } else if (pokeUser.pv <= 120) {
+                                                        pvUser.style.color = "red";
+                                                    };
+
+                                                    // Stopper à 0
+                                                    if (pvUser.innerHTML == "0") {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+
+                                                        let div6boutonSuivant = document.createElement('button');
+                                                        div6boutonSuivant.innerHTML = "Suivant";
+                                                        div6boutonSuivant.style.padding = "3%";
+                                                        div6boutonSuivant.style.fontSize = "18px";
+                                                        div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                                        divComment.append(div6boutonSuivant);
+                                                        /// Défaite
+                                                        div6boutonSuivant.addEventListener('click', function () {
+                                                            divs[6].style.display = "none";
+                                                            divs[7].style.display = "block";
+
+                                                            let div7Title = document.createElement('div');
+
+                                                            let div7title = document.createElement('h1');
+                                                            div7title.innerHTML = `DEFAITE...`;
+                                                            div7title.style.margin = "0.5%";
+
+                                                            let div7title2 = document.createElement('h2');
+                                                            div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                            let gifNo = document.createElement('img');
+                                                            gifNo.setAttribute('src', './public/img/torche.gif');
+
+                                                            let replay = document.createElement('button');
+                                                            replay.innerHTML = `Wanna replay ?`
+                                                            replay.style.padding = "1% 2%";
+                                                            replay.style.margin = "1%";
+
+                                                            replay.addEventListener('click', function () {
+                                                                location.reload();
+                                                            });
+
+                                                            let avis = document.createElement('p');
+                                                            avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                            avis.style.fontSize = "14px";
+
+                                                            div7Title.append(div7title, div7title2);
+
+                                                            divs[7].append(div7Title, gifNo, br, replay, avis);
+                                                        });
+                                                    };
+                                                }
+                                            }, 1500);
+                                        }
+                                    });
+                                    break;
+                                case 2:
+                                    div6attaques[2].innerHTML = `${tabAttaquesSala[2].nom}`;
+                                    // Flammèche
+                                    div6attaques[2].addEventListener('click', function () {
+                                        if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                            pokeRandom.pv -= tabAttaquesSala[2].degat;
+                                            pvAdv.innerHTML = pokeRandom.pv;
+                                            if (pokeRandom.pv === 400) {
+                                                pvAdv.style.color = "black";
+                                            } else if (pokeRandom.pv > 280) {
+                                                pvAdv.style.color = "blue";
+                                            } else if (pokeRandom.pv <= 120) {
+                                                pvAdv.style.color = "red";
+                                            };
+                                            comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesSala[2].nom} " C'est très efficace ! <br> ${pokeRandom.nom} adverse a perdu ${tabAttaquesSala[2].degat} points de vie`;
+                                            // attaque Adversaire
+                                            if (pokeRandom == salahess2) {
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesSala.length - 1));
+                                                var attaqueRandom = tabAttaquesSala[attRandom];
+                                            } else if (pokeRandom == carapils2) {
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesCara.length - 1));
+                                                var attaqueRandom = tabAttaquesCara[attRandom];
+                                            } else if (pokeRandom == bugbizarre2) {
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesBug.length - 1));
+                                                var attaqueRandom = tabAttaquesBug[attRandom];
+                                            }
+
+                                            setTimeout(() => {
+                                                if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                                    pokeUser.pv -= attaqueRandom.degat;
+                                                    if (attRandom == 1) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
+                                                    } else if ((attRandom == 0) || (attRandom == 2)) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
+                                                    };
+                                                    pvUser.innerHTML = pokeUser.pv;
+                                                    if (pokeUser.pv == 400) {
+                                                        pvUser.style.color = "black";
+                                                    } else if (pokeUser.pv > 280) {
+                                                        pvUser.style.color = "blue";
+                                                    } else if (pokeUser.pv <= 120) {
+                                                        pvUser.style.color = "red";
+                                                    };
+                                                };
+                                            }, 1500);
+                                        }
+                                    });
+                                    // Stopper à 0
+                                    div6attaques[2].addEventListener('click', function () {
+                                        // DEFAITE
+                                        if (pvUser.innerHTML == "0") {
+                                            comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            /// Défaite
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `DEFAITE...`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                let gifNo = document.createElement('img');
+                                                gifNo.setAttribute('src', './public/img/torche.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifNo, br, replay, avis);
+                                            });
+                                        } else if (pvAdv.innerHTML == "0") {
+                                            // VICTOIRE
+                                            comment.innerHTML = `${pokeRandom.nom} adverse a été battu ! <br> Passez à l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            // Victoire
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `VICTOIRE !!!`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `Bravo, vous avez gagné !`;
+
+                                                let gifYes = document.createElement('img');
+                                                gifYes.setAttribute('src', './public/img/won.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifYes, br, replay, avis);
+                                            })
+                                        };
+                                    });
+                                    break;
+                                case 3:
+                                    div6attaques[3].innerHTML = `${tabAttaquesSala[3]}`;
+                                    //fuir
+                                    div6attaques[3].addEventListener('click', function () {
+                                        // Nouvelle page
+                                        divs[6].style.display = "none";
+                                        options[1].click();
+                                    });
+                                    break;
                             };
-                            let div6Faire = document.createElement('p');
-                            div6Faire.innerHTML = `Que voulez-vous faire ?`;
-                            div6Faire.style.fontSize = "18px";
-                            div6Faire.style.margin = "0% 8%";
-                            divAttaques.prepend(div6Faire);
+                        };
+
+                        let div6Faire = document.createElement('p');
+                        div6Faire.innerHTML = `Que voulez-vous faire ?`;
+                        div6Faire.style.fontSize = "18px";
+                        div6Faire.style.margin = "0% 8%";
+                        divAttaques.prepend(div6Faire);
 
                     });
                     // Carapils
@@ -811,7 +922,7 @@ boutonJouer.addEventListener('click', function () {
                         divPvAdv.style.justifyContent = "flex-end";
 
                         let pvAdv = document.createElement('span');
-                        pvAdv.innerHTML = `${pokeRandom.pv} `;
+                        pvAdv.innerHTML = pokeRandom.pv;
                         pvAdv.style.fontSize = "20px";
                         pvAdv.style.fontWeight = "bold";
                         pvAdv.style.textDecoration = "underline";
@@ -836,7 +947,7 @@ boutonJouer.addEventListener('click', function () {
                         divPvUser.style.justifyContent = "flex-end";
 
                         let pvUser = document.createElement('span');
-                        pvUser.innerHTML = `${pokeUser.pv} `;
+                        pvUser.innerHTML = pokeUser.pv;
                         pvUser.style.fontSize = "20px";
                         pvUser.style.fontWeight = "bold";
                         pvUser.style.textDecoration = "underline";
@@ -876,9 +987,9 @@ boutonJouer.addEventListener('click', function () {
                         divAttaques.style.flexWrap = "wrap";
                         divAttaques.style.justifyContent = "center";
                         divAttaques.style.padding = "2%";
-                        
+
                         divAttaques.style.fontSize = "25px";
-                        
+
                         let divComment = document.createElement('div');
                         divComment.style.width = "75%";
                         divComment.style.height = "350px";
@@ -896,7 +1007,6 @@ boutonJouer.addEventListener('click', function () {
 
                         let divTemp = document.createElement('div');
                         divTemp.style.width = "25%";
-                                          
                         divTemp.append(div6imgpoke, divPvUser, divAttaques);
 
                         divUser.append(divTemp, divComment);
@@ -912,159 +1022,405 @@ boutonJouer.addEventListener('click', function () {
 
                             divAttaques.append(div6attaque);
                             let div6attaques = divs[6].querySelectorAll('button');
+
                             switch (i) {
                                 case 0:
                                     div6attaques[0].innerHTML = `${tabAttaquesCara[0].nom}`;
                                     // Coup de boule
-                                    div6attaques[0].addEventListener('click', function(){
-                                        if (pokeRandom.pv > 0){
+                                    div6attaques[0].addEventListener('click', function () {
+                                        if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
                                             pokeRandom.pv -= tabAttaquesCara[0].degat;
-                                            pvAdv.innerHTML = `${pokeRandom.pv} `;
-                                            if (pokeRandom === 400){
+                                            pvAdv.innerHTML = pokeRandom.pv;
+                                            if (pokeRandom === 400) {
                                                 pvAdv.style.color = "black";
-                                            } else if (pokeRandom.pv > 280){
+                                            } else if (pokeRandom.pv > 280) {
                                                 pvAdv.style.color = "blue";
-                                            } else if (pokeRandom.pv <= 120){
+                                            } else if (pokeRandom.pv <= 120) {
                                                 pvAdv.style.color = "red";
                                             };
                                             comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesCara[0].nom} " C'est très efficace ! <br> ${pokeRandom.nom} adverse a perdu ${tabAttaquesCara[0].degat} points de vie`;
                                             // attaque Adversaire
                                             if (pokeRandom == salahess2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesSala.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesSala.length - 1));
                                                 var attaqueRandom = tabAttaquesSala[attRandom];
                                             } else if (pokeRandom == carapils2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesCara.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesCara.length - 1));
                                                 var attaqueRandom = tabAttaquesCara[attRandom];
                                             } else if (pokeRandom == bugbizarre2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesBug.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesBug.length - 1));
                                                 var attaqueRandom = tabAttaquesBug[attRandom];
                                             }
-                            
+
                                             setTimeout(() => {
-                                                pokeUser.pv -= attaqueRandom.degat;
-                                                if (attRandom == 1 ){
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
-                                                } else if ((attRandom == 0) || (attRandom == 2)) {
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
-                                                };
-                                                pvUser.innerHTML = `${pokeUser.pv} `;
-                                                if (pokeUser.pv == 400) {
-                                                    pvUser.style.color = "black";
-                                                } else if (pokeUser.pv > 280){
-                                                    pvUser.style.color = "blue";
-                                                } else if (pokeUser.pv <= 120) {
-                                                    pvUser.style.color = "red";
+                                                if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                                    pokeUser.pv -= attaqueRandom.degat;
+                                                    if (attRandom == 1) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
+                                                    } else if ((attRandom == 0) || (attRandom == 2)) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
+                                                    };
+                                                    pvUser.innerHTML = pokeUser.pv;
+                                                    if (pokeUser.pv == 400) {
+                                                        pvUser.style.color = "black";
+                                                    } else if (pokeUser.pv > 280) {
+                                                        pvUser.style.color = "blue";
+                                                    } else if (pokeUser.pv <= 120) {
+                                                        pvUser.style.color = "red";
+                                                    };
                                                 };
                                             }, 1500);
-                                        } 
+                                        }
+                                    });
+                                    // Stopper à 0
+                                    div6attaques[0].addEventListener('click', function () {
+                                        // DEFAITE
+                                        if (pvUser.innerHTML == "0") {
+                                            comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            /// Défaite
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `DEFAITE...`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                let gifNo = document.createElement('img');
+                                                gifNo.setAttribute('src', './public/img/torche.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifNo, br, replay, avis);
+                                            });
+                                        } else if (pvAdv.innerHTML == "0") {
+                                            // VICTOIRE
+                                            comment.innerHTML = `${pokeRandom.nom} adverse a été battu ! <br> Passez à l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            // Victoire
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `VICTOIRE !!!`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `Bravo, vous avez gagné !`;
+
+                                                let gifYes = document.createElement('img');
+                                                gifYes.setAttribute('src', './public/img/won.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifYes, br, replay, avis);
+                                            })
+                                        };
                                     });
                                     break;
                                 case 1:
                                     div6attaques[1].innerHTML = `${tabAttaquesCara[1].nom}`;
                                     //Mmi-queue
-                                    div6attaques[1].addEventListener('click', function(){
-                                        if (pokeRandom.pv > 0){
+                                    div6attaques[1].addEventListener('click', function () {
+                                        if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
                                             pokeRandom.pv -= tabAttaquesCara[1].degat;
-                                            pvAdv.innerHTML = `${pokeRandom.pv} `;
-                                            if (pokeRandom === 400){
+                                            pvAdv.innerHTML = pokeRandom.pv;
+                                            if (pokeRandom === 400) {
                                                 pvAdv.style.color = "black";
-                                            } else if (pokeRandom.pv > 280){
+                                            } else if (pokeRandom.pv > 280) {
                                                 pvAdv.style.color = "blue";
-                                            } else if (pokeRandom.pv <= 120){
+                                            } else if (pokeRandom.pv <= 120) {
                                                 pvAdv.style.color = "red";
                                             };
                                             comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesCara[1].nom} " Ce n'est pas efficace... <br> ${pokeRandom.nom} adverse est juste effrayé`;
                                             // attaque Adversaire
                                             if (pokeRandom == salahess2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesSala.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesSala.length - 1));
                                                 var attaqueRandom = tabAttaquesSala[attRandom];
                                             } else if (pokeRandom == carapils2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesCara.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesCara.length - 1));
                                                 var attaqueRandom = tabAttaquesCara[attRandom];
                                             } else if (pokeRandom == bugbizarre2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesBug.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesBug.length - 1));
                                                 var attaqueRandom = tabAttaquesBug[attRandom];
                                             }
-                            
+
                                             setTimeout(() => {
-                                                pokeUser.pv -= attaqueRandom.degat;
-                                                if (attRandom == 1 ){
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
-                                                } else if ((attRandom == 0) || (attRandom == 2)) {
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
-                                                };
-                                                pvUser.innerHTML = `${pokeUser.pv} `;
-                                                if (pokeUser.pv == 400) {
-                                                    pvUser.style.color = "black";
-                                                } else if (pokeUser.pv > 280){
-                                                    pvUser.style.color = "blue";
-                                                } else if (pokeUser.pv <= 120) {
-                                                    pvUser.style.color = "red";
+                                                if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                                    pokeUser.pv -= attaqueRandom.degat;
+                                                    if (attRandom == 1) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
+                                                    } else if ((attRandom == 0) || (attRandom == 2)) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
+                                                    };
+                                                    pvUser.innerHTML = `${pokeUser.pv} `;
+                                                    if (pokeUser.pv == 400) {
+                                                        pvUser.style.color = "black";
+                                                    } else if (pokeUser.pv > 280) {
+                                                        pvUser.style.color = "blue";
+                                                    } else if (pokeUser.pv <= 120) {
+                                                        pvUser.style.color = "red";
+                                                    };
+
+                                                    // Stopper à 0
+                                                    if (pvUser.innerHTML == "0") {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+
+                                                        let div6boutonSuivant = document.createElement('button');
+                                                        div6boutonSuivant.innerHTML = "Suivant";
+                                                        div6boutonSuivant.style.padding = "3%";
+                                                        div6boutonSuivant.style.fontSize = "18px";
+                                                        div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                                        divComment.append(div6boutonSuivant);
+                                                        /// Défaite
+                                                        div6boutonSuivant.addEventListener('click', function () {
+                                                            divs[6].style.display = "none";
+                                                            divs[7].style.display = "block";
+
+                                                            let div7Title = document.createElement('div');
+
+                                                            let div7title = document.createElement('h1');
+                                                            div7title.innerHTML = `DEFAITE...`;
+                                                            div7title.style.margin = "0.5%";
+
+                                                            let div7title2 = document.createElement('h2');
+                                                            div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                            let gifNo = document.createElement('img');
+                                                            gifNo.setAttribute('src', './public/img/torche.gif');
+
+                                                            let replay = document.createElement('button');
+                                                            replay.innerHTML = `Wanna replay ?`
+                                                            replay.style.padding = "1% 2%";
+                                                            replay.style.margin = "1%";
+
+                                                            replay.addEventListener('click', function () {
+                                                                location.reload();
+                                                            });
+
+                                                            let avis = document.createElement('p');
+                                                            avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                            avis.style.fontSize = "14px";
+
+                                                            div7Title.append(div7title, div7title2);
+
+                                                            divs[7].append(div7Title, gifNo, br, replay, avis);
+                                                        });
+                                                    };
                                                 };
                                             }, 1500);
-                                        } 
+                                        }
                                     });
                                     break;
                                 case 2:
                                     div6attaques[2].innerHTML = `${tabAttaquesCara[2].nom}`;
                                     // Pistolet à O
-                                    div6attaques[2].addEventListener('click', function(){
-                                        if (pokeRandom.pv > 0){
+                                    div6attaques[2].addEventListener('click', function () {
+                                        if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
                                             pokeRandom.pv -= tabAttaquesCara[2].degat;
-                                            pvAdv.innerHTML = `${pokeRandom.pv} `;
-                                            if (pokeRandom === 400){
+                                            pvAdv.innerHTML = pokeRandom.pv;
+                                            if (pokeRandom === 400) {
                                                 pvAdv.style.color = "black";
-                                            } else if (pokeRandom.pv > 280){
+                                            } else if (pokeRandom.pv > 280) {
                                                 pvAdv.style.color = "blue";
-                                            } else if (pokeRandom.pv <= 120){
+                                            } else if (pokeRandom.pv <= 120) {
                                                 pvAdv.style.color = "red";
                                             };
                                             comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesCara[2].nom} " C'est très efficace ! <br> ${pokeRandom.nom} adverse a perdu ${tabAttaquesCara[2].degat} points de vie`;
                                             // attaque Adversaire
                                             if (pokeRandom == salahess2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesSala.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesSala.length - 1));
                                                 var attaqueRandom = tabAttaquesSala[attRandom];
                                             } else if (pokeRandom == carapils2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesCara.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesCara.length - 1));
                                                 var attaqueRandom = tabAttaquesCara[attRandom];
                                             } else if (pokeRandom == bugbizarre2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesBug.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesBug.length - 1));
                                                 var attaqueRandom = tabAttaquesBug[attRandom];
                                             }
-                            
+
                                             setTimeout(() => {
-                                                pokeUser.pv -= attaqueRandom.degat;
-                                                if (attRandom == 1 ){
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
-                                                } else if ((attRandom == 0) || (attRandom == 2)) {
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
-                                                };
-                                                pvUser.innerHTML = `${pokeUser.pv} `;
-                                                if (pokeUser.pv == 400) {
-                                                    pvUser.style.color = "black";
-                                                } else if (pokeUser.pv > 280){
-                                                    pvUser.style.color = "blue";
-                                                } else if (pokeUser.pv <= 120) {
-                                                    pvUser.style.color = "red";
+                                                if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                                    pokeUser.pv -= attaqueRandom.degat;
+                                                    if (attRandom == 1) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
+                                                    } else if ((attRandom == 0) || (attRandom == 2)) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
+                                                    };
+                                                    pvUser.innerHTML = `${pokeUser.pv} `;
+                                                    if (pokeUser.pv == 400) {
+                                                        pvUser.style.color = "black";
+                                                    } else if (pokeUser.pv > 280) {
+                                                        pvUser.style.color = "blue";
+                                                    } else if (pokeUser.pv <= 120) {
+                                                        pvUser.style.color = "red";
+                                                    };
                                                 };
                                             }, 1500);
-                                        }                                     
+                                        }
+                                    });
+                                    // Stopper à 0
+                                    div6attaques[2].addEventListener('click', function () {
+                                        // DEFAITE
+                                        if (pvUser.innerHTML == "0") {
+                                            comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            /// Défaite
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `DEFAITE...`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                let gifNo = document.createElement('img');
+                                                gifNo.setAttribute('src', './public/img/torche.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifNo, br, replay, avis);
+                                            });
+                                        } else if (pvAdv.innerHTML == "0") {
+                                            // VICTOIRE
+                                            comment.innerHTML = `${pokeRandom.nom} adverse a été battu ! <br> Passez à l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            // Victoire
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `VICTOIRE !!!`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `Bravo, vous avez gagné !`;
+
+                                                let gifYes = document.createElement('img');
+                                                gifYes.setAttribute('src', './public/img/won.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifYes, br, replay, avis);
+                                            })
+                                        };
                                     });
                                     break;
                                 case 3:
                                     div6attaques[3].innerHTML = `${tabAttaquesCara[3]}`;
 
                                     //fuir
-                                    div6attaques[3].addEventListener('click', function(){
+                                    div6attaques[3].addEventListener('click', function () {
                                         // Nouvelle page
                                         divs[6].style.display = "none";
                                         options[1].click();
@@ -1072,11 +1428,13 @@ boutonJouer.addEventListener('click', function () {
                                     break;
                             };
                         };
+
                         let div6Faire = document.createElement('p');
                         div6Faire.innerHTML = `Que voulez-vous faire ?`;
                         div6Faire.style.fontSize = "18px";
                         div6Faire.style.margin = "0% 20%";
                         divAttaques.prepend(div6Faire);
+
                     });
                     // Bugbizarre
                     choixPokes[2].addEventListener('click', function () {
@@ -1215,17 +1573,18 @@ boutonJouer.addEventListener('click', function () {
 
                             divAttaques.append(div6attaque);
                             let div6attaques = divs[6].querySelectorAll('button');
+
                             switch (i) {
                                 case 0:
                                     div6attaques[0].innerHTML = `${tabAttaquesBug[0].nom}`;
                                     // Coup de boule
-                                    div6attaques[0].addEventListener('click', function(){
-                                        if (pokeRandom.pv > 0){
+                                    div6attaques[0].addEventListener('click', function () {
+                                        if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
                                             pokeRandom.pv -= tabAttaquesBug[0].degat;
-                                            pvAdv.innerHTML = `${pokeRandom.pv} `;
-                                            if (pokeRandom.pv === 400){
+                                            pvAdv.innerHTML = pokeRandom.pv;
+                                            if (pokeRandom.pv === 400) {
                                                 pvAdv.style.color = "black";
-                                            } else if (pokeRandom.pv > 280){
+                                            } else if (pokeRandom.pv > 280) {
                                                 pvAdv.style.color = "blue";
                                             } else if (pokeRandom.pv <= 120) {
                                                 pvAdv.style.color = "red";
@@ -1233,48 +1592,146 @@ boutonJouer.addEventListener('click', function () {
                                             comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesBug[0].nom} " C'est très efficace ! <br> ${pokeRandom.nom} adverse a perdu ${tabAttaquesBug[0].degat} points de vie`;
                                             // attaque Adversaire
                                             if (pokeRandom == salahess2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesSala.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesSala.length - 1));
                                                 var attaqueRandom = tabAttaquesSala[attRandom];
                                             } else if (pokeRandom == carapils2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesCara.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesCara.length - 1));
                                                 var attaqueRandom = tabAttaquesCara[attRandom];
                                             } else if (pokeRandom == bugbizarre2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesBug.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesBug.length - 1));
                                                 var attaqueRandom = tabAttaquesBug[attRandom];
                                             }
-                            
+
                                             setTimeout(() => {
-                                                pokeUser.pv -= attaqueRandom.degat;
-                                                if (attRandom == 1 ){
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
-                                                } else if ((attRandom == 0) || (attRandom == 2)) {
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
-                                                };
-                                                pvUser.innerHTML = `${pokeUser.pv} `;
-                                                if (pokeUser.pv == 400) {
-                                                    pvUser.style.color = "black";
-                                                } else if (pokeUser.pv > 280){
-                                                    pvUser.style.color = "blue";
-                                                } else if (pokeUser.pv <= 120) {
-                                                    pvUser.style.color = "red";
+                                                if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                                    pokeUser.pv -= attaqueRandom.degat;
+                                                    if (attRandom == 1) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
+                                                    } else if ((attRandom == 0) || (attRandom == 2)) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
+                                                    };
+                                                    pvUser.innerHTML = `${pokeUser.pv} `;
+                                                    if (pokeUser.pv == 400) {
+                                                        pvUser.style.color = "black";
+                                                    } else if (pokeUser.pv > 280) {
+                                                        pvUser.style.color = "blue";
+                                                    } else if (pokeUser.pv <= 120) {
+                                                        pvUser.style.color = "red";
+                                                    };
                                                 };
                                             }, 1500);
-                                        } 
+                                        }
                                     });
+                                    // Stopper à 0
+                                    div6attaques[0].addEventListener('click', function () {
+                                        // DEFAITE
+                                        if (pvUser.innerHTML == "0") {
+                                            comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            /// Défaite
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `DEFAITE...`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                let gifNo = document.createElement('img');
+                                                gifNo.setAttribute('src', './public/img/torche.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifNo, br, replay, avis);
+                                            });
+                                        } else if (pvAdv.innerHTML == "0") {
+                                            // VICTOIRE
+                                            comment.innerHTML = `${pokeRandom.nom} adverse a été battu ! <br> Passez à l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            // Victoire
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `VICTOIRE !!!`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `Bravo, vous avez gagné !`;
+
+                                                let gifYes = document.createElement('img');
+                                                gifYes.setAttribute('src', './public/img/won.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifYes, br, replay, avis);
+                                            })
+                                        };
+                                    });                                    
                                     break;
                                 case 1:
                                     div6attaques[1].innerHTML = `${tabAttaquesBug[1].nom}`;
                                     // Rugissement
-                                    div6attaques[1].addEventListener('click', function(){
-                                        if (pokeRandom.pv > 0){
+                                    div6attaques[1].addEventListener('click', function () {
+                                        if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
                                             pokeRandom.pv -= tabAttaquesBug[1].degat;
-                                            pvAdv.innerHTML = `${pokeRandom.pv} `;
-                                            if (pokeRandom.pv === 400){
+                                            pvAdv.innerHTML = pokeRandom.pv;
+                                            if (pokeRandom.pv === 400) {
                                                 pvAdv.style.color = "black";
-                                            } else if (pokeRandom.pv > 280){
+                                            } else if (pokeRandom.pv > 280) {
                                                 pvAdv.style.color = "blue";
                                             } else if (pokeRandom.pv <= 120) {
                                                 pvAdv.style.color = "red";
@@ -1282,48 +1739,97 @@ boutonJouer.addEventListener('click', function () {
                                             comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesBug[1].nom} " Ce n'est pas efficace... <br> ${pokeRandom.nom} adverse est juste effrayé`;
                                             // attaque Adversaire
                                             if (pokeRandom == salahess2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesSala.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesSala.length - 1));
                                                 var attaqueRandom = tabAttaquesSala[attRandom];
                                             } else if (pokeRandom == carapils2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesCara.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesCara.length - 1));
                                                 var attaqueRandom = tabAttaquesCara[attRandom];
                                             } else if (pokeRandom == bugbizarre2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesBug.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesBug.length - 1));
                                                 var attaqueRandom = tabAttaquesBug[attRandom];
                                             }
-                            
+
                                             setTimeout(() => {
-                                                pokeUser.pv -= attaqueRandom.degat;
-                                                if (attRandom == 1 ){
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
-                                                } else if ((attRandom == 0) || (attRandom == 2)) {
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
-                                                };
-                                                pvUser.innerHTML = `${pokeUser.pv} `;
-                                                if (pokeUser.pv == 400) {
-                                                    pvUser.style.color = "black";
-                                                } else if (pokeUser.pv > 280){
-                                                    pvUser.style.color = "blue";
-                                                } else if (pokeUser.pv <= 120) {
-                                                    pvUser.style.color = "red";
+                                                if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                                    pokeUser.pv -= attaqueRandom.degat;
+                                                    if (attRandom == 1) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
+                                                    } else if ((attRandom == 0) || (attRandom == 2)) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
+                                                    };
+                                                    pvUser.innerHTML = `${pokeUser.pv} `;
+                                                    if (pokeUser.pv == 400) {
+                                                        pvUser.style.color = "black";
+                                                    } else if (pokeUser.pv > 280) {
+                                                        pvUser.style.color = "blue";
+                                                    } else if (pokeUser.pv <= 120) {
+                                                        pvUser.style.color = "red";
+                                                    };
+
+                                                    // Stopper à 0
+                                                    if (pvUser.innerHTML == "0") {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+
+                                                        let div6boutonSuivant = document.createElement('button');
+                                                        div6boutonSuivant.innerHTML = "Suivant";
+                                                        div6boutonSuivant.style.padding = "3%";
+                                                        div6boutonSuivant.style.fontSize = "18px";
+                                                        div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                                        divComment.append(div6boutonSuivant);
+                                                        /// Défaite
+                                                        div6boutonSuivant.addEventListener('click', function () {
+                                                            divs[6].style.display = "none";
+                                                            divs[7].style.display = "block";
+
+                                                            let div7Title = document.createElement('div');
+
+                                                            let div7title = document.createElement('h1');
+                                                            div7title.innerHTML = `DEFAITE...`;
+                                                            div7title.style.margin = "0.5%";
+
+                                                            let div7title2 = document.createElement('h2');
+                                                            div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                            let gifNo = document.createElement('img');
+                                                            gifNo.setAttribute('src', './public/img/torche.gif');
+
+                                                            let replay = document.createElement('button');
+                                                            replay.innerHTML = `Wanna replay ?`
+                                                            replay.style.padding = "1% 2%";
+                                                            replay.style.margin = "1%";
+
+                                                            replay.addEventListener('click', function () {
+                                                                location.reload();
+                                                            });
+
+                                                            let avis = document.createElement('p');
+                                                            avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                            avis.style.fontSize = "14px";
+
+                                                            div7Title.append(div7title, div7title2);
+
+                                                            divs[7].append(div7Title, gifNo, br, replay, avis);
+                                                        });
+                                                    };
                                                 };
                                             }, 1500);
-                                        } 
+                                        }
                                     });
                                     break;
                                 case 2:
                                     div6attaques[2].innerHTML = `${tabAttaquesBug[2].nom}`;
                                     // Fouet Lianes
-                                    div6attaques[2].addEventListener('click', function(){
-                                        if (pokeRandom.pv > 0){
+                                    div6attaques[2].addEventListener('click', function () {
+                                        if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
                                             pokeRandom.pv -= tabAttaquesBug[2].degat;
-                                            pvAdv.innerHTML = `${pokeRandom.pv} `;
-                                            if (pokeRandom.pv === 400){
+                                            pvAdv.innerHTML = pokeRandom.pv;
+                                            if (pokeRandom.pv === 400) {
                                                 pvAdv.style.color = "black";
-                                            } else if (pokeRandom.pv > 280){
+                                            } else if (pokeRandom.pv > 280) {
                                                 pvAdv.style.color = "blue";
                                             } else if (pokeRandom.pv <= 120) {
                                                 pvAdv.style.color = "red";
@@ -1331,43 +1837,141 @@ boutonJouer.addEventListener('click', function () {
                                             comment.innerHTML = `${pokeUser.nom} attaque " ${tabAttaquesBug[2].nom} " C'est très efficace ! <br> ${pokeRandom.nom} adverse a perdu ${tabAttaquesBug[2].degat} points de vie`;
                                             // attaque Adversaire
                                             if (pokeRandom == salahess2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesSala.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesSala.length - 1));
                                                 var attaqueRandom = tabAttaquesSala[attRandom];
                                             } else if (pokeRandom == carapils2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesCara.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesCara.length - 1));
                                                 var attaqueRandom = tabAttaquesCara[attRandom];
                                             } else if (pokeRandom == bugbizarre2) {
-                                                    // Random
-                                                var attRandom = Math.floor(Math.random()* (tabAttaquesBug.length-1));
+                                                // Random
+                                                var attRandom = Math.floor(Math.random() * (tabAttaquesBug.length - 1));
                                                 var attaqueRandom = tabAttaquesBug[attRandom];
                                             }
-                            
+
                                             setTimeout(() => {
-                                                pokeUser.pv -= attaqueRandom.degat;
-                                                if (attRandom == 1 ){
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
-                                                } else if ((attRandom == 0) || (attRandom == 2)) {
-                                                    comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
-                                                };
-                                                pvUser.innerHTML = `${pokeUser.pv} `;
-                                                if (pokeUser.pv == 400) {
-                                                    pvUser.style.color = "black";
-                                                } else if (pokeUser.pv > 280){
-                                                    pvUser.style.color = "blue";
-                                                } else if (pokeUser.pv <= 120) {
-                                                    pvUser.style.color = "red";
+                                                if ((pokeUser.pv > 0) && (pokeRandom.pv > 0)) {
+                                                    pokeUser.pv -= attaqueRandom.degat;
+                                                    if (attRandom == 1) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " Ce n'est pas efficace... <br> Votre ${pokeUser.nom} est juste effrayé`;
+                                                    } else if ((attRandom == 0) || (attRandom == 2)) {
+                                                        comment.innerHTML = `${pokeRandom.nom} adverse attaque " ${attaqueRandom.nom} " C'est très efficace ! <br> Votre ${pokeUser.nom} a perdu ${attaqueRandom.degat} points de vie`;
+                                                    };
+                                                    pvUser.innerHTML = `${pokeUser.pv} `;
+                                                    if (pokeUser.pv == 400) {
+                                                        pvUser.style.color = "black";
+                                                    } else if (pokeUser.pv > 280) {
+                                                        pvUser.style.color = "blue";
+                                                    } else if (pokeUser.pv <= 120) {
+                                                        pvUser.style.color = "red";
+                                                    };
                                                 };
                                             }, 1500);
-                                        } 
+                                        }
                                     });
+                                    // Stopper à 0
+                                    div6attaques[2].addEventListener('click', function () {
+                                        // DEFAITE
+                                        if (pvUser.innerHTML == "0") {
+                                            comment.innerHTML = `${pokeRandom.nom} adverse vous a battu... <br> Passez a l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            /// Défaite
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `DEFAITE...`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `${pokeRandom.nom} a décidé de vous éliminer.<br> Votre aventure s'arrête ici`;
+
+                                                let gifNo = document.createElement('img');
+                                                gifNo.setAttribute('src', './public/img/torche.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifNo, br, replay, avis);
+                                            });
+                                        } else if (pvAdv.innerHTML == "0") {
+                                            // VICTOIRE
+                                            comment.innerHTML = `${pokeRandom.nom} adverse a été battu ! <br> Passez à l'écran suivant`;
+
+                                            let div6boutonSuivant = document.createElement('button');
+                                            div6boutonSuivant.innerHTML = "Suivant";
+                                            div6boutonSuivant.style.padding = "3%";
+                                            div6boutonSuivant.style.fontSize = "18px";
+                                            div6boutonSuivant.style.backgroundColor = "yellow";
+
+                                            divComment.append(div6boutonSuivant);
+
+                                            // Victoire
+                                            div6boutonSuivant.addEventListener('click', function () {
+                                                divs[6].style.display = "none";
+                                                divs[7].style.display = "block";
+
+                                                let div7Title = document.createElement('div');
+
+                                                let div7title = document.createElement('h1');
+                                                div7title.innerHTML = `VICTOIRE !!!`;
+                                                div7title.style.margin = "0.5%";
+
+                                                let div7title2 = document.createElement('h2');
+                                                div7title2.innerHTML = `Bravo, vous avez gagné !`;
+
+                                                let gifYes = document.createElement('img');
+                                                gifYes.setAttribute('src', './public/img/won.gif');
+
+                                                let replay = document.createElement('button');
+                                                replay.innerHTML = `Wanna replay ?`
+                                                replay.style.padding = "1% 2%";
+                                                replay.style.margin = "1%";
+
+                                                replay.addEventListener('click', function () {
+                                                    location.reload();
+                                                });
+
+                                                let avis = document.createElement('p');
+                                                avis.innerHTML = `N'hésitez pas à m'envoyer vos avis et vos conseils ;)`;
+                                                avis.style.fontSize = "14px";
+
+                                                div7Title.append(div7title, div7title2);
+
+                                                divs[7].append(div7Title, gifYes, br, replay, avis);
+                                            })
+                                        };
+                                    });                                    
                                     break;
                                 case 3:
                                     div6attaques[3].innerHTML = `${tabAttaquesBug[3]}`;
 
                                     //fuir
-                                    div6attaques[3].addEventListener('click', function(){
+                                    div6attaques[3].addEventListener('click', function () {
                                         // Nouvelle page
                                         divs[6].style.display = "none";
                                         options[1].click();
@@ -1375,17 +1979,15 @@ boutonJouer.addEventListener('click', function () {
                                     break;
                             };
                         };
+
                         let div6Faire = document.createElement('p');
                         div6Faire.innerHTML = `Que voulez-vous faire ?`;
                         div6Faire.style.fontSize = "18px";
                         div6Faire.style.margin = "0% 10%";
                         divAttaques.prepend(div6Faire);
-
                     });
-
-
-
                 });
+
                 // Option fuir
             } else if (i === 1) {
                 options[1].innerHTML = "Fuir";
@@ -1419,43 +2021,5 @@ boutonJouer.addEventListener('click', function () {
         }
 
         divs[3].prepend(div3p1, img3, br);
-
     });
-
-
 });
-
-console.log(divs);
-console.log(divs.length);
-
-//    // Déclaration des variables
-let continuer;
-
-let quitter; // Ptet réutiliser à l'intérieur pour option Q
-// -------------------------------------------------------
-// // Boucle permettant de relancer la partie à partir de <<Promenade>>
-
-// // Continuer à jouer ?
-//     continuer = prompt(`Souhaitez-vous continuer à jouer ?\nA. OUI\nAutre. NON`).toLowerCase();
-
-
-// // Quitter / Fin du jeu
-// quitter = alert(`À très bientôt !`);
-
-// FIN DU JEU
-
-
-// -------------------------------------------------------
-// -------------------------------------------------------
-// Tests
-
-
-//    // Style Winner
-// corps.style.backgroundImage = "none"
-
-//    // Style Défaite
-// corps.style.backgroundImage = "none"
-// alert(`La sentence est irrevocable. Ton aventure s'arrête ici...`)
-
-//    // Style Rejouer ?
-// corps.style.backgroundImage = "none"
